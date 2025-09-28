@@ -14,6 +14,7 @@
         TxtNik.Enabled = True
         TxtNama.Enabled = True
         CmbJenisKelamin.Enabled = True
+        TxtAlamat.Enabled = True
         CmbAgama.Enabled = True
         CmbJurusan.Enabled = True
         CmbStatusMahasiswa.Enabled = True
@@ -56,8 +57,8 @@
                         CmbStatusMahasiswa.Text, "Hasil Pengisian", MessageBoxButtons.OK,
                                                  MessageBoxIcon.Information)
         ' Memasukkan hasil ke dalam Label
-        LbHasil.Text = "NIK             : " + TxtNik.Text & vbCrLf &
-                       "Nama Anda       : " + TxtNama.Text & vbCrLf &
+        LbHasil.Text = "NIK                 : " + TxtNik.Text & vbCrLf &
+                       "Nama Anda        : " + TxtNama.Text & vbCrLf &
                        "Jenis Kelamin   : " + CmbJenisKelamin.Text & vbCrLf &
                        "Agama           : " + CmbAgama.Text & vbCrLf &
                        "Alamat          : " + TxtAlamat.Text & vbCrLf &
