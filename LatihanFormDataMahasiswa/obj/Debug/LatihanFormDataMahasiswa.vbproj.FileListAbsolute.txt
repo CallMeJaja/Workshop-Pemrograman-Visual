@@ -1,0 +1,15 @@
+C:\Users\eza\Projects\Workshop-Pemrograman-Visual\LatihanFormDataMahasiswa\bin\Debug\LatihanFormDataMahasiswa.exe.config
+C:\Users\eza\Projects\Workshop-Pemrograman-Visual\LatihanFormDataMahasiswa\bin\Debug\LatihanFormDataMahasiswa.exe
+C:\Users\eza\Projects\Workshop-Pemrograman-Visual\LatihanFormDataMahasiswa\bin\Debug\LatihanFormDataMahasiswa.pdb
+C:\Users\eza\Projects\Workshop-Pemrograman-Visual\LatihanFormDataMahasiswa\bin\Debug\LatihanFormDataMahasiswa.xml
+C:\Users\eza\Projects\Workshop-Pemrograman-Visual\LatihanFormDataMahasiswa\bin\Debug\MySql.Data.dll
+C:\Users\eza\Projects\Workshop-Pemrograman-Visual\LatihanFormDataMahasiswa\bin\Debug\MySql.Data.xml
+C:\Users\eza\Projects\Workshop-Pemrograman-Visual\LatihanFormDataMahasiswa\obj\Debug\LatihanFormDataMahasiswa.vbproj.AssemblyReference.cache
+C:\Users\eza\Projects\Workshop-Pemrograman-Visual\LatihanFormDataMahasiswa\obj\Debug\LatihanFormDataMahasiswa.FrmDataMahasiswa.resources
+C:\Users\eza\Projects\Workshop-Pemrograman-Visual\LatihanFormDataMahasiswa\obj\Debug\LatihanFormDataMahasiswa.Resources.resources
+C:\Users\eza\Projects\Workshop-Pemrograman-Visual\LatihanFormDataMahasiswa\obj\Debug\LatihanFormDataMahasiswa.vbproj.GenerateResource.cache
+C:\Users\eza\Projects\Workshop-Pemrograman-Visual\LatihanFormDataMahasiswa\obj\Debug\LatihanFormDataMahasiswa.vbproj.CoreCompileInputs.cache
+C:\Users\eza\Projects\Workshop-Pemrograman-Visual\LatihanFormDataMahasiswa\obj\Debug\LatihanFormDataMahasiswa.vbproj.CopyComplete
+C:\Users\eza\Projects\Workshop-Pemrograman-Visual\LatihanFormDataMahasiswa\obj\Debug\LatihanFormDataMahasiswa.exe
+C:\Users\eza\Projects\Workshop-Pemrograman-Visual\LatihanFormDataMahasiswa\obj\Debug\LatihanFormDataMahasiswa.xml
+C:\Users\eza\Projects\Workshop-Pemrograman-Visual\LatihanFormDataMahasiswa\obj\Debug\LatihanFormDataMahasiswa.pdb

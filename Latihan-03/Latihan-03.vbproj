@@ -48,6 +48,10 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=9.4.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector NET 9.4\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -73,17 +77,37 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmDataMhs.vb">
+    <Compile Include="FrmDataMahasiswa.Designer.vb">
+      <DependentUpon>FrmDataMahasiswa.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDataMahasiswa.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmDataMhs.Designer.vb">
       <DependentUpon>FrmDataMhs.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDataMhs.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmDataGridMhs.Designer.vb">
+      <DependentUpon>FrmDataGridMhs.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDataGridMhs.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDataMhsOri.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDataMhsOri.Designer.vb">
+      <DependentUpon>FrmDataMhsOri.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MdDbKoneksi.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -97,8 +121,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FrmDataMahasiswa.resx">
+      <DependentUpon>FrmDataMahasiswa.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmDataMhs.resx">
       <DependentUpon>FrmDataMhs.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDataGridMhs.resx">
+      <DependentUpon>FrmDataGridMhs.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDataMhsOri.resx">
+      <DependentUpon>FrmDataMhsOri.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

@@ -1,0 +1,12 @@
+C:\Users\eza\Projects\Workshop-Pemrograman-Visual\LatihanKalkulator\bin\Debug\LatihanKalkulator.exe.config
+C:\Users\eza\Projects\Workshop-Pemrograman-Visual\LatihanKalkulator\bin\Debug\LatihanKalkulator.exe
+C:\Users\eza\Projects\Workshop-Pemrograman-Visual\LatihanKalkulator\bin\Debug\LatihanKalkulator.pdb
+C:\Users\eza\Projects\Workshop-Pemrograman-Visual\LatihanKalkulator\bin\Debug\LatihanKalkulator.xml
+C:\Users\eza\Projects\Workshop-Pemrograman-Visual\LatihanKalkulator\obj\Debug\LatihanKalkulator.vbproj.AssemblyReference.cache
+C:\Users\eza\Projects\Workshop-Pemrograman-Visual\LatihanKalkulator\obj\Debug\LatihanKalkulator.FrmKalkulator.resources
+C:\Users\eza\Projects\Workshop-Pemrograman-Visual\LatihanKalkulator\obj\Debug\LatihanKalkulator.Resources.resources
+C:\Users\eza\Projects\Workshop-Pemrograman-Visual\LatihanKalkulator\obj\Debug\LatihanKalkulator.vbproj.GenerateResource.cache
+C:\Users\eza\Projects\Workshop-Pemrograman-Visual\LatihanKalkulator\obj\Debug\LatihanKalkulator.vbproj.CoreCompileInputs.cache
+C:\Users\eza\Projects\Workshop-Pemrograman-Visual\LatihanKalkulator\obj\Debug\LatihanKalkulator.exe
+C:\Users\eza\Projects\Workshop-Pemrograman-Visual\LatihanKalkulator\obj\Debug\LatihanKalkulator.xml
+C:\Users\eza\Projects\Workshop-Pemrograman-Visual\LatihanKalkulator\obj\Debug\LatihanKalkulator.pdb

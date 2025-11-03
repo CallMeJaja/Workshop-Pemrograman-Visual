@@ -10,3 +10,9 @@ C:\Users\eza\Projects\Workshop-Pemrograman-Visual\Latihan-03\obj\Debug\Latihan-0
 C:\Users\eza\Projects\Workshop-Pemrograman-Visual\Latihan-03\obj\Debug\Latihan-03.exe
 C:\Users\eza\Projects\Workshop-Pemrograman-Visual\Latihan-03\obj\Debug\Latihan-03.xml
 C:\Users\eza\Projects\Workshop-Pemrograman-Visual\Latihan-03\obj\Debug\Latihan-03.pdb
+C:\Users\eza\Projects\Workshop-Pemrograman-Visual\Latihan-03\obj\Debug\Latihan_03.FrmDataGridMhs.resources
+C:\Users\eza\Projects\Workshop-Pemrograman-Visual\Latihan-03\obj\Debug\Latihan_03.FrmDataMhs.resources
+C:\Users\eza\Projects\Workshop-Pemrograman-Visual\Latihan-03\obj\Debug\Latihan_03.FrmDataMhsOri.resources
+C:\Users\eza\Projects\Workshop-Pemrograman-Visual\Latihan-03\bin\Debug\MySql.Data.dll
+C:\Users\eza\Projects\Workshop-Pemrograman-Visual\Latihan-03\bin\Debug\MySql.Data.xml
+C:\Users\eza\Projects\Workshop-Pemrograman-Visual\Latihan-03\obj\Debug\Latihan-03.vbproj.CopyComplete
