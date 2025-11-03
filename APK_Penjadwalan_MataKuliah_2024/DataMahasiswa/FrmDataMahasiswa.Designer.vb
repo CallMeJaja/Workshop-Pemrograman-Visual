@@ -24,6 +24,7 @@ Partial Class FrmDataMahasiswa
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.LblKdProdi = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.BtnCariData = New System.Windows.Forms.Button()
         Me.BtnKeluar = New System.Windows.Forms.Button()
@@ -35,7 +36,6 @@ Partial Class FrmDataMahasiswa
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.DataGridMahasiswa = New System.Windows.Forms.DataGridView()
-        Me.LblKdProdi = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -69,6 +69,15 @@ Partial Class FrmDataMahasiswa
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1463, 84)
         Me.Panel1.TabIndex = 1
+        '
+        'LblKdProdi
+        '
+        Me.LblKdProdi.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.LblKdProdi.Location = New System.Drawing.Point(499, 33)
+        Me.LblKdProdi.Name = "LblKdProdi"
+        Me.LblKdProdi.Size = New System.Drawing.Size(56, 29)
+        Me.LblKdProdi.TabIndex = 10
+        Me.LblKdProdi.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'GroupBox1
         '
@@ -187,15 +196,6 @@ Partial Class FrmDataMahasiswa
         Me.DataGridMahasiswa.RowTemplate.Height = 24
         Me.DataGridMahasiswa.Size = New System.Drawing.Size(1463, 490)
         Me.DataGridMahasiswa.TabIndex = 10
-        '
-        'LblKdProdi
-        '
-        Me.LblKdProdi.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.LblKdProdi.Location = New System.Drawing.Point(499, 33)
-        Me.LblKdProdi.Name = "LblKdProdi"
-        Me.LblKdProdi.Size = New System.Drawing.Size(56, 29)
-        Me.LblKdProdi.TabIndex = 10
-        Me.LblKdProdi.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'FrmDataMahasiswa
         '

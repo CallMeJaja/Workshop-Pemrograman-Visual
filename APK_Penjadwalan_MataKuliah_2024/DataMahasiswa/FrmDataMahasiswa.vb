@@ -171,9 +171,11 @@ WHERE
         Call KoneksiDB()
         'Call TampilkanDataGridMahasiswa()
         Call TampilkanFilterDataProdi()
+        DataGridMahasiswa.Enabled = False
     End Sub
     Private Sub CbNamaJurusan_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CbNamaJurusan.SelectedIndexChanged
         Call KoneksiDB()
+        Call TampilkanDataGridMahasiswa()
         CMD = New MySqlCommand("SELECT * FROM tbl_prodi WHERE Nm_Prodi = '" & CbNamaJurusan.Text & "'", DBKoneksi)
         DR = CMD.ExecuteReader
         DR.Read()
@@ -181,7 +183,6 @@ WHERE
             Kode_Jurusan = DR.Item("Kd_Prodi")
             LblKdProdi.Text = Microsoft.VisualBasic.Right(Kode_Jurusan, 2)
         End If
-        Call EnableDataGridMahasiswa()
         Call FilterByNamaProdiMahasiswa()
     End Sub
     Private Sub BtnTambahData_Click(sender As Object, e As EventArgs) Handles BtnTambahData.Click
@@ -192,6 +193,9 @@ WHERE
             FrmMahasiswa.Show()
             Me.Enabled = False
             FrmMahasiswa.CmbJurusan.Text = CbNamaJurusan.Text
+            FrmMahasiswa.LbKdJurusan.Text = LblKdProdi.Text
+            FrmMahasiswa.BtnHapus.Enabled = False
+            FrmMahasiswa.BtnHapus.BackColor = Color.Red
 
             ' DEBUG
             'MsgBox(CbNamaJurusan.Text)
@@ -223,6 +227,7 @@ WHERE
             DA.Fill(DS)
             DataGridMahasiswa.DataSource = DS.Tables(0)
         End If
+        DataGridMahasiswa.Enabled = True
     End Sub
     Private Sub BtnKeluar_Click(sender As Object, e As EventArgs) Handles BtnKeluar.Click
         If BtnKeluar.Text = "KELUAR" Then
@@ -281,6 +286,52 @@ ORDER BY
             DS = New DataSet()
             DA.Fill(DS)
             DataGridMahasiswa.DataSource = DS.Tables(0)
+
         End If
+    End Sub
+
+    Private Sub DataGridMahasiswa_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridMahasiswa.CellContentDoubleClick
+        Dim Baris As Integer
+        'MsgBox("KLIK")
+        'MsgBox("CURRENT CELL : " & DataGridMahasiswa.CurrentCell.Value)
+        'MsgBox("CURRENT INDEX : " & DataGridMahasiswa.CurrentRow.Index)
+        'MsgBox("CURRENT SELECTED : " & DataGridMahasiswa.CurrentRow.Selected)
+        FrmMahasiswa.Show()
+        FrmMahasiswa.BtnSimpan.Text = "UBAH"
+        FrmMahasiswa.BtnKeluar.Text = "BATAL"
+
+        CMD = New MySqlCommand("SELECT * FROM tbl_mahasiswa WHERE NIK_Mhs = '" & DataGridMahasiswa.Item(0, Baris).Value & "'", DBKoneksi)
+        DR = CMD.ExecuteReader
+        DR.Read()
+
+        With DataGridMahasiswa
+            Baris = .CurrentRow.Index
+            MsgBox(Baris)
+            MsgBox("KOLOM 0 : " & .Item(0, Baris).Value)
+            MsgBox("KOLOM 1 : " & .Item(1, Baris).Value)
+            MsgBox("KOLOM 2 : " & .Item(2, Baris).Value)
+            MsgBox("KOLOM 3 : " & .Item(3, Baris).Value)
+            MsgBox("KOLOM 4 : " & .Item(4, Baris).Value)
+            MsgBox("KOLOM 5 : " & .Item(5, Baris).Value)
+            MsgBox("KOLOM 6 : " & .Item(6, Baris).Value)
+            MsgBox("KOLOM 7 : " & .Item(7, Baris).Value)
+
+            FrmMahasiswa.LbNim.Text = .Item(0, Baris).Value
+            FrmMahasiswa.TxtNama.Text = .Item(1, Baris).Value
+            FrmMahasiswa.CmbJenisKelamin.Text = .Item(2, Baris).Value
+            FrmMahasiswa.date
+
+
+
+            'FrmMahasiswa.LbNim.Text = .Item(0, Baris).Value
+            'FrmMahasiswa.TxtNama.Text = .Item(1, Baris).Value
+            'FrmMahasiswa.CmbJenisKelamin.Text = .Rows(e.RowIndex).Cells(2).Value
+            'FrmMahasiswa.DateTimePickerMhs.Value = .Item(3, Baris).Value
+            'FrmMahasiswa.DateTimePickerMhs.Value = .Item(3, Baris).Value
+            'FrmMahasiswa.TxtAlamat.Text = .Item(4, Baris).Value
+            'FrmMahasiswa.CmbJurusan.Text = .Rows(e.RowIndex).Cells(5).Value
+            'FrmMahasiswa.CmbStatusMahasiswa.Text = .Rows(e.RowIndex).Cells(6).Value
+        End With
+
     End Sub
 End Class

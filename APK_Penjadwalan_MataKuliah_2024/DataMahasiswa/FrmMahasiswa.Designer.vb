@@ -32,7 +32,6 @@ Partial Class FrmMahasiswa
         Me.LbNamaMhs = New System.Windows.Forms.Label()
         Me.LbJurusanMhs = New System.Windows.Forms.Label()
         Me.CmbJurusan = New System.Windows.Forms.ComboBox()
-        Me.TxtNim = New System.Windows.Forms.TextBox()
         Me.LbStatusMhs = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TxtAlamat = New System.Windows.Forms.TextBox()
@@ -149,22 +148,11 @@ Partial Class FrmMahasiswa
         'CmbJurusan
         '
         Me.CmbJurusan.FormattingEnabled = True
-        Me.CmbJurusan.Location = New System.Drawing.Point(260, 290)
+        Me.CmbJurusan.Location = New System.Drawing.Point(212, 290)
         Me.CmbJurusan.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.CmbJurusan.Name = "CmbJurusan"
-        Me.CmbJurusan.Size = New System.Drawing.Size(306, 24)
+        Me.CmbJurusan.Size = New System.Drawing.Size(354, 24)
         Me.CmbJurusan.TabIndex = 13
-        '
-        'TxtNim
-        '
-        Me.TxtNim.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TxtNim.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.TxtNim.Location = New System.Drawing.Point(263, 37)
-        Me.TxtNim.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.TxtNim.Multiline = True
-        Me.TxtNim.Name = "TxtNim"
-        Me.TxtNim.Size = New System.Drawing.Size(303, 18)
-        Me.TxtNim.TabIndex = 8
         '
         'LbStatusMhs
         '
@@ -249,7 +237,6 @@ Partial Class FrmMahasiswa
         Me.GroupBox1.Controls.Add(Me.LbNamaMhs)
         Me.GroupBox1.Controls.Add(Me.LbJurusanMhs)
         Me.GroupBox1.Controls.Add(Me.CmbJurusan)
-        Me.GroupBox1.Controls.Add(Me.TxtNim)
         Me.GroupBox1.Controls.Add(Me.LbStatusMhs)
         Me.GroupBox1.Controls.Add(Me.TxtAlamat)
         Me.GroupBox1.Controls.Add(Me.CmbJenisKelamin)
@@ -268,19 +255,21 @@ Partial Class FrmMahasiswa
         '
         'LbKdJurusan
         '
-        Me.LbKdJurusan.BackColor = System.Drawing.Color.Yellow
+        Me.LbKdJurusan.BackColor = System.Drawing.Color.Khaki
         Me.LbKdJurusan.Location = New System.Drawing.Point(168, 290)
         Me.LbKdJurusan.Name = "LbKdJurusan"
-        Me.LbKdJurusan.Size = New System.Drawing.Size(89, 24)
+        Me.LbKdJurusan.Size = New System.Drawing.Size(38, 24)
         Me.LbKdJurusan.TabIndex = 22
+        Me.LbKdJurusan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'LbNim
         '
-        Me.LbNim.BackColor = System.Drawing.Color.Yellow
-        Me.LbNim.Location = New System.Drawing.Point(171, 37)
+        Me.LbNim.BackColor = System.Drawing.Color.Khaki
+        Me.LbNim.Location = New System.Drawing.Point(171, 31)
         Me.LbNim.Name = "LbNim"
-        Me.LbNim.Size = New System.Drawing.Size(86, 18)
+        Me.LbNim.Size = New System.Drawing.Size(109, 24)
         Me.LbNim.TabIndex = 21
+        Me.LbNim.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'DateTimePickerMhs
         '
@@ -349,7 +338,6 @@ Partial Class FrmMahasiswa
     Friend WithEvents LbNamaMhs As Label
     Friend WithEvents LbJurusanMhs As Label
     Friend WithEvents CmbJurusan As ComboBox
-    Friend WithEvents TxtNim As TextBox
     Friend WithEvents LbStatusMhs As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents TxtAlamat As TextBox
