@@ -63,7 +63,7 @@ Partial Class FrmMahasiswa
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.GroupBox2.Size = New System.Drawing.Size(566, 72)
+        Me.GroupBox2.Size = New System.Drawing.Size(565, 71)
         Me.GroupBox2.TabIndex = 22
         Me.GroupBox2.TabStop = False
         '
@@ -92,7 +92,7 @@ Partial Class FrmMahasiswa
         'BtnHapus
         '
         Me.BtnHapus.AutoSize = True
-        Me.BtnHapus.Location = New System.Drawing.Point(262, 19)
+        Me.BtnHapus.Location = New System.Drawing.Point(261, 18)
         Me.BtnHapus.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.BtnHapus.Name = "BtnHapus"
         Me.BtnHapus.Size = New System.Drawing.Size(87, 32)
@@ -103,9 +103,9 @@ Partial Class FrmMahasiswa
         'LbHasil
         '
         Me.LbHasil.BackColor = System.Drawing.Color.Silver
-        Me.LbHasil.Location = New System.Drawing.Point(20, 371)
+        Me.LbHasil.Location = New System.Drawing.Point(20, 370)
         Me.LbHasil.Name = "LbHasil"
-        Me.LbHasil.Size = New System.Drawing.Size(546, 140)
+        Me.LbHasil.Size = New System.Drawing.Size(547, 140)
         Me.LbHasil.TabIndex = 16
         '
         'CmbStatusMahasiswa
@@ -148,10 +148,10 @@ Partial Class FrmMahasiswa
         'CmbJurusan
         '
         Me.CmbJurusan.FormattingEnabled = True
-        Me.CmbJurusan.Location = New System.Drawing.Point(212, 290)
+        Me.CmbJurusan.Location = New System.Drawing.Point(245, 290)
         Me.CmbJurusan.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.CmbJurusan.Name = "CmbJurusan"
-        Me.CmbJurusan.Size = New System.Drawing.Size(354, 24)
+        Me.CmbJurusan.Size = New System.Drawing.Size(320, 24)
         Me.CmbJurusan.TabIndex = 13
         '
         'LbStatusMhs
@@ -258,7 +258,7 @@ Partial Class FrmMahasiswa
         Me.LbKdJurusan.BackColor = System.Drawing.Color.Khaki
         Me.LbKdJurusan.Location = New System.Drawing.Point(168, 290)
         Me.LbKdJurusan.Name = "LbKdJurusan"
-        Me.LbKdJurusan.Size = New System.Drawing.Size(38, 24)
+        Me.LbKdJurusan.Size = New System.Drawing.Size(72, 25)
         Me.LbKdJurusan.TabIndex = 22
         Me.LbKdJurusan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -267,7 +267,7 @@ Partial Class FrmMahasiswa
         Me.LbNim.BackColor = System.Drawing.Color.Khaki
         Me.LbNim.Location = New System.Drawing.Point(171, 31)
         Me.LbNim.Name = "LbNim"
-        Me.LbNim.Size = New System.Drawing.Size(109, 24)
+        Me.LbNim.Size = New System.Drawing.Size(109, 25)
         Me.LbNim.TabIndex = 21
         Me.LbNim.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -275,6 +275,7 @@ Partial Class FrmMahasiswa
         '
         Me.DateTimePickerMhs.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.DateTimePickerMhs.Location = New System.Drawing.Point(353, 148)
+        Me.DateTimePickerMhs.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.DateTimePickerMhs.Name = "DateTimePickerMhs"
         Me.DateTimePickerMhs.Size = New System.Drawing.Size(213, 22)
         Me.DateTimePickerMhs.TabIndex = 20
@@ -302,6 +303,7 @@ Partial Class FrmMahasiswa
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(608, 50)
         Me.Panel1.TabIndex = 23
@@ -315,6 +317,7 @@ Partial Class FrmMahasiswa
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "FrmMahasiswa"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FrmMahasiswa"

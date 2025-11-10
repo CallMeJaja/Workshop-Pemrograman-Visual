@@ -90,6 +90,18 @@
     <Compile Include="DataMahasiswa\FrmMahasiswa.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="DataMahasiswa\FrmMenuUtama.Designer.vb">
+      <DependentUpon>FrmMenuUtama.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DataMahasiswa\FrmMenuUtama.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogin.Designer.vb">
+      <DependentUpon>FrmLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MDbKoneksi.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -107,6 +119,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="TentangAplikasi.Designer.vb">
+      <DependentUpon>TentangAplikasi.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TentangAplikasi.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="DataMahasiswa\FrmDataMahasiswa.resx">
@@ -115,11 +133,20 @@
     <EmbeddedResource Include="DataMahasiswa\FrmMahasiswa.resx">
       <DependentUpon>FrmMahasiswa.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DataMahasiswa\FrmMenuUtama.resx">
+      <DependentUpon>FrmMenuUtama.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TentangAplikasi.resx">
+      <DependentUpon>TentangAplikasi.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

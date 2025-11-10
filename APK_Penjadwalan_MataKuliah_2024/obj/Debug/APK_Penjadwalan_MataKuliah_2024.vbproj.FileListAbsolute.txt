@@ -14,3 +14,6 @@ C:\Users\eza\Projects\Workshop-Pemrograman-Visual\APK_Penjadwalan_MataKuliah_202
 C:\Users\eza\Projects\Workshop-Pemrograman-Visual\APK_Penjadwalan_MataKuliah_2024\obj\Debug\APK_Penjadwalan_MataKuliah_2024.xml
 C:\Users\eza\Projects\Workshop-Pemrograman-Visual\APK_Penjadwalan_MataKuliah_2024\obj\Debug\APK_Penjadwalan_MataKuliah_2024.pdb
 C:\Users\eza\Projects\Workshop-Pemrograman-Visual\APK_Penjadwalan_MataKuliah_2024\obj\Debug\APK_Penjadwalan_MataKuliah_2024.FrmMahasiswa.resources
+C:\Users\eza\Projects\Workshop-Pemrograman-Visual\APK_Penjadwalan_MataKuliah_2024\obj\Debug\APK_Penjadwalan_MataKuliah_2024.FrmMenuUtama.resources
+C:\Users\eza\Projects\Workshop-Pemrograman-Visual\APK_Penjadwalan_MataKuliah_2024\obj\Debug\APK_Penjadwalan_MataKuliah_2024.TentangAplikasi.resources
+C:\Users\eza\Projects\Workshop-Pemrograman-Visual\APK_Penjadwalan_MataKuliah_2024\obj\Debug\APK_Penjadwalan_MataKuliah_2024.FrmLogin.resources

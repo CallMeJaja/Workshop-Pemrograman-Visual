@@ -112,46 +112,47 @@ Public Class FrmDataMahasiswa
         Call KoneksiDB()
         ' menampilkan filter data berdasarkan nama prodi
         DA = New MySqlDataAdapter("SELECT DISTINCT
-	tbl_mahasiswa.NIK_Mhs, 
-	tbl_mahasiswa.Nm_Mhs, 
-	tbl_mahasiswa.JK_Mhs, 
-	tbl_mahasiswa.tmptlahir_Mhs, 
-	tbl_mahasiswa.TglLahir_Mhs, 
-	tbl_mahasiswa.Alamat_Mhs, 
-	tbl_prodi.Nm_Prodi, 
-	tbl_mahasiswa.Status_Mhs
-FROM
-	tbl_mahasiswa
-	INNER JOIN
-	tbl_prodi
-	ON 
-		tbl_prodi.Kd_Prodi = tbl_mahasiswa.Kd_Prodi
-WHERE
-	tbl_prodi.Nm_Prodi LIKE '" + CbNamaJurusan.Text + "'", DBKoneksi)
+	                                    tbl_mahasiswa.NIK_Mhs, 
+	                                    tbl_mahasiswa.Nm_Mhs, 
+	                                    tbl_mahasiswa.JK_Mhs, 
+	                                    tbl_mahasiswa.tmptlahir_Mhs, 
+	                                    tbl_mahasiswa.TglLahir_Mhs, 
+	                                    tbl_mahasiswa.Alamat_Mhs, 
+	                                    tbl_prodi.Nm_Prodi, 
+	                                    tbl_mahasiswa.Status_Mhs
+                                    FROM
+	                                    tbl_mahasiswa
+	                                    INNER JOIN
+	                                    tbl_prodi
+	                                    ON 
+		                                    tbl_prodi.Kd_Prodi = tbl_mahasiswa.Kd_Prodi
+                                    WHERE
+	                                    tbl_prodi.Nm_Prodi LIKE '" + CbNamaJurusan.Text + "'", DBKoneksi)
 
         DS = New DataSet
         DS.Clear()
         DA.Fill(DS)
+        MsgBox("DEBUG : " & DS.Tables(0).ToString & " ", vbInformation, "INFORMASI")
         DataGridMahasiswa.DataSource = DS.Tables(0)
         DataGridMahasiswa.ReadOnly = True
 
         CMD = New MySqlCommand("SELECT DISTINCT
-	tbl_mahasiswa.NIK_Mhs, 
-	tbl_mahasiswa.Nm_Mhs, 
-	tbl_mahasiswa.JK_Mhs, 
-	tbl_mahasiswa.tmptlahir_Mhs, 
-	tbl_mahasiswa.TglLahir_Mhs, 
-	tbl_mahasiswa.Alamat_Mhs, 
-	tbl_prodi.Nm_Prodi, 
-	tbl_mahasiswa.Status_Mhs
-FROM
-	tbl_mahasiswa
-	INNER JOIN
-	tbl_prodi
-	ON 
-		tbl_prodi.Kd_Prodi = tbl_mahasiswa.Kd_Prodi
-WHERE
-	tbl_prodi.Nm_Prodi LIKE '" + CbNamaJurusan.Text + "'", DBKoneksi)
+	                                tbl_mahasiswa.NIK_Mhs, 
+	                                tbl_mahasiswa.Nm_Mhs, 
+	                                tbl_mahasiswa.JK_Mhs, 
+	                                tbl_mahasiswa.tmptlahir_Mhs, 
+	                                tbl_mahasiswa.TglLahir_Mhs, 
+	                                tbl_mahasiswa.Alamat_Mhs, 
+	                                tbl_prodi.Nm_Prodi, 
+	                                tbl_mahasiswa.Status_Mhs
+                                FROM
+	                                tbl_mahasiswa
+	                                INNER JOIN
+	                                tbl_prodi
+	                                ON 
+		                                tbl_prodi.Kd_Prodi = tbl_mahasiswa.Kd_Prodi
+                                WHERE
+	                                tbl_prodi.Nm_Prodi LIKE '" + CbNamaJurusan.Text + "'", DBKoneksi)
 
 
         DR = CMD.ExecuteReader
@@ -168,10 +169,14 @@ WHERE
         End If
     End Sub
     Private Sub FrmDataMahasiswa_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Call KoneksiDB()
-        'Call TampilkanDataGridMahasiswa()
-        Call TampilkanFilterDataProdi()
-        DataGridMahasiswa.Enabled = False
+        Try
+            Call KoneksiDB()
+            'Call TampilkanDataGridMahasiswa()
+            Call TampilkanFilterDataProdi()
+            DataGridMahasiswa.Enabled = False
+        Catch ex As Exception
+            MsgBox("Upss : " & ex.Message & " ", vbInformation, ex.Message)
+        End Try
     End Sub
     Private Sub CbNamaJurusan_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CbNamaJurusan.SelectedIndexChanged
         Call KoneksiDB()
@@ -291,6 +296,7 @@ ORDER BY
     End Sub
 
     Private Sub DataGridMahasiswa_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridMahasiswa.CellContentDoubleClick
+        On Error Resume Next
         Dim Baris As Integer
         'MsgBox("KLIK")
         'MsgBox("CURRENT CELL : " & DataGridMahasiswa.CurrentCell.Value)
@@ -306,7 +312,7 @@ ORDER BY
 
         With DataGridMahasiswa
             Baris = .CurrentRow.Index
-            MsgBox(Baris)
+            'MsgBox(Baris)
             MsgBox("KOLOM 0 : " & .Item(0, Baris).Value)
             MsgBox("KOLOM 1 : " & .Item(1, Baris).Value)
             MsgBox("KOLOM 2 : " & .Item(2, Baris).Value)
@@ -319,8 +325,12 @@ ORDER BY
             FrmMahasiswa.LbNim.Text = .Item(0, Baris).Value
             FrmMahasiswa.TxtNama.Text = .Item(1, Baris).Value
             FrmMahasiswa.CmbJenisKelamin.Text = .Item(2, Baris).Value
-            FrmMahasiswa.date
-
+            FrmMahasiswa.TxtTempatLahir.Text = .Item(3, Baris).Value
+            FrmMahasiswa.DateTimePickerMhs.Value = .Item(4, Baris).Value
+            FrmMahasiswa.TxtAlamat.Text = .Item(4, Baris).Value
+            FrmMahasiswa.LbKdJurusan.Text = Kode_Jurusan
+            FrmMahasiswa.CmbJurusan.Text = CbNamaJurusan.Text
+            FrmMahasiswa.CmbStatusMahasiswa.SelectedItem = .Item(7, Baris).Value
 
 
             'FrmMahasiswa.LbNim.Text = .Item(0, Baris).Value

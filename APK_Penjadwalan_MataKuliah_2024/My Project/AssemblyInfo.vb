@@ -9,10 +9,10 @@ Imports System.Runtime.InteropServices
 ' Review the values of the assembly attributes
 
 <Assembly: AssemblyTitle("APK_Penjadwalan_MataKuliah_2024")>
-<Assembly: AssemblyDescription("")>
-<Assembly: AssemblyCompany("")>
+<Assembly: AssemblyDescription("Aplikasi Penjadwalan Mata Kuliah")>
+<Assembly: AssemblyCompany("Politeknik Enjinering Indorama")>
 <Assembly: AssemblyProduct("APK_Penjadwalan_MataKuliah_2024")>
-<Assembly: AssemblyCopyright("Copyright ©  2025")>
+<Assembly: AssemblyCopyright("Copyright ©  Reza A Maulana 2025")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>

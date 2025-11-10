@@ -41,6 +41,7 @@ Public Class FrmMahasiswa
                 SQLInsert = "INSERT INTO tbl_mahasiswa VALUE ('" & LbNim.Text & "','" & TxtNama.Text & "','" & CmbJenisKelamin.Text & "','" & TxtTempatLahir.Text & "','" & DateTimePickerMhs.Value.ToString("yyyy/MM/dd") & "','" & TxtAlamat.Text & "','" & Kode_Jurusan & "','" & CmbStatusMahasiswa.Text & "')"
                 CMD = New MySqlCommand(SQLInsert, DBKoneksi)
                 CMD.ExecuteReader()
+                MsgBox("Data berhasil di simpan.", vbInformation, "INFORMASI")
             End If
         End If
     End Sub
@@ -48,5 +49,27 @@ Public Class FrmMahasiswa
     Private Sub FrmMahasiswa_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Call JenisKelamin()
         Call StatusMahasiswa()
+    End Sub
+
+    Private Sub BtnHapus_Click(sender As Object, e As EventArgs) Handles BtnHapus.Click
+        Call KoneksiDB()
+        Dim Konfirmasi As String
+        Konfirmasi = MsgBox("Anda yakin ingin menghapus data ini?", vbYesNo + vbQuestion, "INFORMASI")
+        If Konfirmasi = vbYes Then
+            SQLDelete = "DELETE FROM tbl_mahasiswa WHERE NIK_Mhs = '" & LbNim.Text & "'"
+            CMD = New MySqlCommand(SQLDelete, DBKoneksi)
+            CMD.ExecuteReader()
+            Call FrmDataMahasiswa.TampilkanDataGridMahasiswa()
+
+            BtnSimpan.Enabled = False
+            BtnSimpan.BackColor = Color.Red
+            BtnHapus.Enabled = False
+            BtnHapus.BackColor = Color.Red
+            MsgBox("Data berhasil dihapus", vbInformation, "INFORMASis")
+        Else
+            Call FrmDataMahasiswa.TampilkanDataGridMahasiswa()
+            BtnHapus.Enabled = False
+            BtnHapus.BackColor = Color.Red
+        End If
     End Sub
 End Class
