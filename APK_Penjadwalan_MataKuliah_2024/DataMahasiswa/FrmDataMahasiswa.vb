@@ -301,6 +301,7 @@ ORDER BY
         Dim Baris As Integer
         FrmMahasiswa.Show()
         'FrmMahasiswa.MdiParent = FrmMenuUtama
+
         FrmMahasiswa.BtnSimpan.Text = "UBAH"
         FrmMahasiswa.BtnKeluar.Text = "BATAL"
 
