@@ -24,13 +24,13 @@ Partial Class FrmLogin
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.TxtPwd = New System.Windows.Forms.TextBox()
+        Me.TxtUser = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.BtnBatal = New System.Windows.Forms.Button()
+        Me.BtnLogin = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
@@ -49,8 +49,8 @@ Partial Class FrmLogin
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.TextBox2)
-        Me.GroupBox1.Controls.Add(Me.TextBox1)
+        Me.GroupBox1.Controls.Add(Me.TxtPwd)
+        Me.GroupBox1.Controls.Add(Me.TxtUser)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Location = New System.Drawing.Point(22, 92)
@@ -59,20 +59,20 @@ Partial Class FrmLogin
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         '
-        'TextBox2
+        'TxtPwd
         '
-        Me.TextBox2.Location = New System.Drawing.Point(117, 105)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.PasswordChar = Global.Microsoft.VisualBasic.ChrW(65)
-        Me.TextBox2.Size = New System.Drawing.Size(210, 27)
-        Me.TextBox2.TabIndex = 3
+        Me.TxtPwd.Location = New System.Drawing.Point(117, 105)
+        Me.TxtPwd.Name = "TxtPwd"
+        Me.TxtPwd.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.TxtPwd.Size = New System.Drawing.Size(210, 23)
+        Me.TxtPwd.TabIndex = 3
         '
-        'TextBox1
+        'TxtUser
         '
-        Me.TextBox1.Location = New System.Drawing.Point(117, 35)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(210, 27)
-        Me.TextBox1.TabIndex = 2
+        Me.TxtUser.Location = New System.Drawing.Point(117, 35)
+        Me.TxtUser.Name = "TxtUser"
+        Me.TxtUser.Size = New System.Drawing.Size(210, 23)
+        Me.TxtUser.TabIndex = 2
         '
         'Label3
         '
@@ -80,7 +80,7 @@ Partial Class FrmLogin
         Me.Label3.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(7, 105)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(104, 19)
+        Me.Label3.Size = New System.Drawing.Size(87, 16)
         Me.Label3.TabIndex = 1
         Me.Label3.Text = "PASSWORD"
         '
@@ -90,44 +90,46 @@ Partial Class FrmLogin
         Me.Label2.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(7, 35)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(53, 19)
+        Me.Label2.Size = New System.Drawing.Size(45, 16)
         Me.Label2.TabIndex = 0
         Me.Label2.Text = "USER"
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.Button2)
-        Me.GroupBox2.Controls.Add(Me.Button1)
+        Me.GroupBox2.Controls.Add(Me.BtnBatal)
+        Me.GroupBox2.Controls.Add(Me.BtnLogin)
         Me.GroupBox2.Location = New System.Drawing.Point(22, 267)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(333, 85)
         Me.GroupBox2.TabIndex = 2
         Me.GroupBox2.TabStop = False
         '
-        'Button2
+        'BtnBatal
         '
-        Me.Button2.Location = New System.Drawing.Point(221, 16)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(106, 51)
-        Me.Button2.TabIndex = 1
-        Me.Button2.Text = "BATAL"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.BtnBatal.Location = New System.Drawing.Point(221, 16)
+        Me.BtnBatal.Name = "BtnBatal"
+        Me.BtnBatal.Size = New System.Drawing.Size(106, 51)
+        Me.BtnBatal.TabIndex = 1
+        Me.BtnBatal.Text = "BATAL"
+        Me.BtnBatal.UseVisualStyleBackColor = True
         '
-        'Button1
+        'BtnLogin
         '
-        Me.Button1.Location = New System.Drawing.Point(10, 16)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(126, 51)
-        Me.Button1.TabIndex = 0
-        Me.Button1.Text = "LOGIN"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.BtnLogin.Location = New System.Drawing.Point(10, 16)
+        Me.BtnLogin.Name = "BtnLogin"
+        Me.BtnLogin.Size = New System.Drawing.Size(126, 51)
+        Me.BtnLogin.TabIndex = 0
+        Me.BtnLogin.Text = "LOGIN"
+        Me.BtnLogin.UseVisualStyleBackColor = True
         '
         'FrmLogin
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 19.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSize = True
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(379, 364)
+        Me.ControlBox = False
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label1)
@@ -144,11 +146,11 @@ Partial Class FrmLogin
 
     Friend WithEvents Label1 As Label
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents TxtPwd As TextBox
+    Friend WithEvents TxtUser As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents BtnBatal As Button
+    Friend WithEvents BtnLogin As Button
 End Class

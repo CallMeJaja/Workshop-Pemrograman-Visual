@@ -8,12 +8,12 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("APK_Penjadwalan_MataKuliah_2024")>
-<Assembly: AssemblyDescription("Aplikasi Penjadwalan Mata Kuliah")>
-<Assembly: AssemblyCompany("Politeknik Enjinering Indorama")>
-<Assembly: AssemblyProduct("APK_Penjadwalan_MataKuliah_2024")>
+<Assembly: AssemblyTitle("SISTEM INFORMASI PENJADWALAN MATA KULIAH")>
+<Assembly: AssemblyDescription("Aplikasi ini dibuat untuk memenuhi salah satu syarat Ujian Tengah Semester Mata Kuliah Pemrograman Menggunakan Visual Basic .NET 2019 dengan database MySQL")>
+<Assembly: AssemblyCompany("POLITENIK ENJINERING INDOARAM")>
+<Assembly: AssemblyProduct("Sistem Informasi Penjadwalan Mata Kuliah")>
 <Assembly: AssemblyCopyright("Copyright ©  Reza A Maulana 2025")>
-<Assembly: AssemblyTrademark("")>
+<Assembly: AssemblyTrademark("Teknologi Rekayasa Perangkat Lunak")>
 
 <Assembly: ComVisible(False)>
 

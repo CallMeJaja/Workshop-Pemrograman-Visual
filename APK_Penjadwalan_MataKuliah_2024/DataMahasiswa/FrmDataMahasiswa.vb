@@ -132,7 +132,7 @@ Public Class FrmDataMahasiswa
         DS = New DataSet
         DS.Clear()
         DA.Fill(DS)
-        MsgBox("DEBUG : " & DS.Tables(0).ToString & " ", vbInformation, "INFORMASI")
+        'MsgBox("DEBUG : " & DS.Tables(0).ToString & " ", vbInformation, "INFORMASI")
         DataGridMahasiswa.DataSource = DS.Tables(0)
         DataGridMahasiswa.ReadOnly = True
 
@@ -196,6 +196,7 @@ Public Class FrmDataMahasiswa
             CbNamaJurusan.Focus()
         Else
             FrmMahasiswa.Show()
+            FrmMahasiswa.MdiParent = FrmMenuUtama
             Me.Enabled = False
             FrmMahasiswa.CmbJurusan.Text = CbNamaJurusan.Text
             FrmMahasiswa.LbKdJurusan.Text = LblKdProdi.Text
@@ -217,15 +218,15 @@ Public Class FrmDataMahasiswa
             MsgBox("Silahkan pilih nama jurusan!", vbCritical + vbYes, "Peringatan")
         Else
             DA = New MySqlDataAdapter("SELECT
-	tbl_mahasiswa.*, 
-	tbl_prodi.Nm_Prodi
-FROM
-	tbl_mahasiswa
-	INNER JOIN
-	tbl_prodi
-	ON 
-		tbl_prodi.Kd_Prodi = tbl_mahasiswa.Kd_Prodi
-WHERE
+	    tbl_mahasiswa.*, 
+	    tbl_prodi.Nm_Prodi
+    FROM
+	    tbl_mahasiswa
+	    INNER JOIN
+	    tbl_prodi
+	    ON 
+		    tbl_prodi.Kd_Prodi = tbl_mahasiswa.Kd_Prodi
+    WHERE
 	tbl_prodi.Nm_Prodi = '" & CbNamaJurusan.Text & "' AND
 	tbl_mahasiswa.Nm_Mhs LIKE '%" & TxtCariNama.Text & "%'", DBKoneksi)
             DS = New DataSet()
@@ -279,7 +280,7 @@ ORDER BY
 
             Hasil = TahunSekarang & KodeProdi & Microsoft.VisualBasic.Right("000" & Hitung, 3)
 
-            FrmMahasiswa.LbNim.Text = Hasil
+            FrmMahasiswa.LbNimVal.Text = Hasil
         Catch ex As Exception
             MessageBox.Show("Terjadi kesalahan saat membuat NIM : " & ex.Message, ex.Message)
         End Try
@@ -295,14 +296,11 @@ ORDER BY
         End If
     End Sub
 
-    Private Sub DataGridMahasiswa_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridMahasiswa.CellContentDoubleClick
+    Private Sub DataGridMahasiswa_CellMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridMahasiswa.CellMouseDoubleClick
         On Error Resume Next
         Dim Baris As Integer
-        'MsgBox("KLIK")
-        'MsgBox("CURRENT CELL : " & DataGridMahasiswa.CurrentCell.Value)
-        'MsgBox("CURRENT INDEX : " & DataGridMahasiswa.CurrentRow.Index)
-        'MsgBox("CURRENT SELECTED : " & DataGridMahasiswa.CurrentRow.Selected)
         FrmMahasiswa.Show()
+        'FrmMahasiswa.MdiParent = FrmMenuUtama
         FrmMahasiswa.BtnSimpan.Text = "UBAH"
         FrmMahasiswa.BtnKeluar.Text = "BATAL"
 
@@ -312,17 +310,7 @@ ORDER BY
 
         With DataGridMahasiswa
             Baris = .CurrentRow.Index
-            'MsgBox(Baris)
-            MsgBox("KOLOM 0 : " & .Item(0, Baris).Value)
-            MsgBox("KOLOM 1 : " & .Item(1, Baris).Value)
-            MsgBox("KOLOM 2 : " & .Item(2, Baris).Value)
-            MsgBox("KOLOM 3 : " & .Item(3, Baris).Value)
-            MsgBox("KOLOM 4 : " & .Item(4, Baris).Value)
-            MsgBox("KOLOM 5 : " & .Item(5, Baris).Value)
-            MsgBox("KOLOM 6 : " & .Item(6, Baris).Value)
-            MsgBox("KOLOM 7 : " & .Item(7, Baris).Value)
-
-            FrmMahasiswa.LbNim.Text = .Item(0, Baris).Value
+            FrmMahasiswa.LbNimVal.Text = .Item(0, Baris).Value
             FrmMahasiswa.TxtNama.Text = .Item(1, Baris).Value
             FrmMahasiswa.CmbJenisKelamin.Text = .Item(2, Baris).Value
             FrmMahasiswa.TxtTempatLahir.Text = .Item(3, Baris).Value
@@ -331,17 +319,6 @@ ORDER BY
             FrmMahasiswa.LbKdJurusan.Text = Kode_Jurusan
             FrmMahasiswa.CmbJurusan.Text = CbNamaJurusan.Text
             FrmMahasiswa.CmbStatusMahasiswa.SelectedItem = .Item(7, Baris).Value
-
-
-            'FrmMahasiswa.LbNim.Text = .Item(0, Baris).Value
-            'FrmMahasiswa.TxtNama.Text = .Item(1, Baris).Value
-            'FrmMahasiswa.CmbJenisKelamin.Text = .Rows(e.RowIndex).Cells(2).Value
-            'FrmMahasiswa.DateTimePickerMhs.Value = .Item(3, Baris).Value
-            'FrmMahasiswa.DateTimePickerMhs.Value = .Item(3, Baris).Value
-            'FrmMahasiswa.TxtAlamat.Text = .Item(4, Baris).Value
-            'FrmMahasiswa.CmbJurusan.Text = .Rows(e.RowIndex).Cells(5).Value
-            'FrmMahasiswa.CmbStatusMahasiswa.Text = .Rows(e.RowIndex).Cells(6).Value
         End With
-
     End Sub
 End Class

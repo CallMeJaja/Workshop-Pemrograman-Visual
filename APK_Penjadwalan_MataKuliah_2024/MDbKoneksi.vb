@@ -6,13 +6,17 @@ Module MDbKoneksi
     Public DS As DataSet
     Public CMD As MySqlCommand
     Public DR As MySqlDataReader
-    Public Hitung As Integer = 1
+    Public Hitung As Integer = 0
     Public Hasil As String
     Public Kode_Jurusan As String
     Public Kode_Semester As String
     Public Nomor As Integer
+    Public isLogin As Boolean = False
+    Public Nama As String
+    Public Nama_Jurusan As String
 
     Public DBLokasi As String
+    Public Query As String
     Public SQLInsert As String
     Public SQLUpdate As String
     Public SQLDelete As String

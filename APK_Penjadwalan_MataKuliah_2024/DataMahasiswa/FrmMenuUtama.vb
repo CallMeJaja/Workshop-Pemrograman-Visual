@@ -18,12 +18,13 @@
     End Sub
 
     Private Sub FrmMenuUtama_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ToolStripDropDownButton2.Enabled = False
-        ToolStripDropDownButton3.Enabled = False
-        LogOutSistemToolStripMenuItem.Enabled = False
+        If (isLogin <> True) Then
+            ToolStripDropDownButton2.Enabled = False
+            ToolStripDropDownButton3.Enabled = False
+            LogOutSistemToolStripMenuItem.Enabled = False
+        End If
     End Sub
-
-    Private Sub ToolStripDropDownButton2_Click(sender As Object, e As EventArgs) Handles ToolStripDropDownButton2.Click
-
+    Private Sub LogOutSistemToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogOutSistemToolStripMenuItem.Click
+        Me.Close()
     End Sub
 End Class

@@ -109,7 +109,7 @@ Partial Class FrmMenuUtama
         'ABOUTBOXToolStripMenuItem
         '
         Me.ABOUTBOXToolStripMenuItem.Name = "ABOUTBOXToolStripMenuItem"
-        Me.ABOUTBOXToolStripMenuItem.Size = New System.Drawing.Size(201, 26)
+        Me.ABOUTBOXToolStripMenuItem.Size = New System.Drawing.Size(224, 26)
         Me.ABOUTBOXToolStripMenuItem.Text = "Tentang Aplikasi"
         '
         'FrmMenuUtama
