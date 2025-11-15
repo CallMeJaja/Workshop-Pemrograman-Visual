@@ -40,12 +40,12 @@ Public Class FrmDataMahasiswa
                 .Columns(1).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
 
                 ' Style JENIS KELAMIN
-                .Columns(2).Width = 80
+                .Columns(2).Width = 150
                 .Columns(2).HeaderText = "JENIS KELAMIN"
                 .Columns(2).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
 
                 ' Style TEMPAT LAHIR
-                .Columns(3).Width = 80
+                .Columns(3).Width = 200
                 .Columns(3).HeaderText = "TEMPAT LAHIR"
                 .Columns(3).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
 
@@ -55,12 +55,12 @@ Public Class FrmDataMahasiswa
                 .Columns(4).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
 
                 ' Style ALAMAT
-                .Columns(5).Width = 80
+                .Columns(5).Width = 300
                 .Columns(5).HeaderText = "ALAMAT"
                 .Columns(5).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
 
                 ' Style STATUS MAHASISWA
-                .Columns(6).Width = 80
+                .Columns(6).Width = 200
                 .Columns(6).HeaderText = "STATUS MAHASISWA"
                 .Columns(6).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
 

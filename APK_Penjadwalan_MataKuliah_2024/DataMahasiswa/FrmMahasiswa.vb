@@ -26,6 +26,10 @@ Public Class FrmMahasiswa
                 FrmDataMahasiswa.Show()
                 FrmDataMahasiswa.Enabled = True
             End If
+        ElseIf BtnKeluar.Text = "BATAL" Then
+            Me.Close()
+            FrmDataMahasiswa.Show()
+            FrmDataMahasiswa.Enabled = True
         Else
             BtnSimpan.Text = "&AKTIF FORM"
             BtnSimpan.Enabled = True
@@ -60,8 +64,6 @@ Public Class FrmMahasiswa
                 FrmDataMahasiswa.Enabled = True
                 Call KoneksiDB()
                 Query = "SELECT tbl_mahasiswa.*, tbl_prodi.Nm_Prodi FROM tbl_mahasiswa INNER JOIN tbl_prodi ON tbl_prodi.Kd_Prodi = tbl_mahasiswa.Kd_Prodi WHERE tbl_prodi.Nm_Prodi ='" & Nama_Jurusan & "' AND tbl_mahasiswa.Nm_Mhs LIKE '%" & Nama & "%'"
-                MsgBox("QUERY : " & Query & "", vbInformation, "DEBUG")
-
                 DA = New MySqlDataAdapter(Query, DBKoneksi)
                 DS = New DataSet()
                 DA.Fill(DS)
@@ -90,7 +92,8 @@ Public Class FrmMahasiswa
             BtnSimpan.BackColor = Color.Red
             BtnHapus.Enabled = False
             BtnHapus.BackColor = Color.Red
-            MsgBox("Data berhasil dihapus", vbInformation, "INFORMASis")
+            MsgBox("Data berhasil dihapus", vbInformation, "INFORMASi")
+            Me.Close()
         Else
             Call FrmDataMahasiswa.TampilkanDataGridMahasiswa()
             BtnHapus.Enabled = False

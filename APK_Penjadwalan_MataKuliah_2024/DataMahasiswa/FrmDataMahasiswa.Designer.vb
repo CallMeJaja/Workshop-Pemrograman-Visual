@@ -48,8 +48,9 @@ Partial Class FrmDataMahasiswa
         Me.Label1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Label1.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(0, 0)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(1463, 50)
+        Me.Label1.Size = New System.Drawing.Size(1097, 41)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "DATA MAHASISWA"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -65,17 +66,19 @@ Partial Class FrmDataMahasiswa
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Panel1.Location = New System.Drawing.Point(0, 50)
+        Me.Panel1.Location = New System.Drawing.Point(0, 41)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1463, 84)
+        Me.Panel1.Size = New System.Drawing.Size(1097, 68)
         Me.Panel1.TabIndex = 1
         '
         'LblKdProdi
         '
         Me.LblKdProdi.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.LblKdProdi.Location = New System.Drawing.Point(499, 33)
+        Me.LblKdProdi.Location = New System.Drawing.Point(374, 27)
+        Me.LblKdProdi.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.LblKdProdi.Name = "LblKdProdi"
-        Me.LblKdProdi.Size = New System.Drawing.Size(56, 29)
+        Me.LblKdProdi.Size = New System.Drawing.Size(42, 24)
         Me.LblKdProdi.TabIndex = 10
         Me.LblKdProdi.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -86,9 +89,11 @@ Partial Class FrmDataMahasiswa
         Me.GroupBox1.Controls.Add(Me.BtnCariData)
         Me.GroupBox1.Controls.Add(Me.BtnKeluar)
         Me.GroupBox1.Controls.Add(Me.BtnTambahData)
-        Me.GroupBox1.Location = New System.Drawing.Point(970, 3)
+        Me.GroupBox1.Location = New System.Drawing.Point(728, 2)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(481, 75)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Size = New System.Drawing.Size(361, 61)
         Me.GroupBox1.TabIndex = 9
         Me.GroupBox1.TabStop = False
         '
@@ -98,9 +103,10 @@ Partial Class FrmDataMahasiswa
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BtnCariData.AutoSize = True
         Me.BtnCariData.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnCariData.Location = New System.Drawing.Point(21, 21)
+        Me.BtnCariData.Location = New System.Drawing.Point(16, 17)
+        Me.BtnCariData.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.BtnCariData.Name = "BtnCariData"
-        Me.BtnCariData.Size = New System.Drawing.Size(130, 33)
+        Me.BtnCariData.Size = New System.Drawing.Size(98, 27)
         Me.BtnCariData.TabIndex = 8
         Me.BtnCariData.Text = "CARI DATA"
         Me.BtnCariData.UseVisualStyleBackColor = True
@@ -111,9 +117,10 @@ Partial Class FrmDataMahasiswa
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BtnKeluar.AutoSize = True
         Me.BtnKeluar.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.BtnKeluar.Location = New System.Drawing.Point(363, 21)
+        Me.BtnKeluar.Location = New System.Drawing.Point(272, 17)
+        Me.BtnKeluar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.BtnKeluar.Name = "BtnKeluar"
-        Me.BtnKeluar.Size = New System.Drawing.Size(97, 33)
+        Me.BtnKeluar.Size = New System.Drawing.Size(73, 27)
         Me.BtnKeluar.TabIndex = 7
         Me.BtnKeluar.Text = "KELUAR"
         Me.BtnKeluar.UseVisualStyleBackColor = True
@@ -124,18 +131,20 @@ Partial Class FrmDataMahasiswa
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BtnTambahData.AutoSize = True
         Me.BtnTambahData.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnTambahData.Location = New System.Drawing.Point(192, 21)
+        Me.BtnTambahData.Location = New System.Drawing.Point(137, 17)
+        Me.BtnTambahData.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.BtnTambahData.Name = "BtnTambahData"
-        Me.BtnTambahData.Size = New System.Drawing.Size(130, 33)
+        Me.BtnTambahData.Size = New System.Drawing.Size(112, 27)
         Me.BtnTambahData.TabIndex = 6
         Me.BtnTambahData.Text = "TAMBAH DATA"
         Me.BtnTambahData.UseVisualStyleBackColor = True
         '
         'TxtCariNama
         '
-        Me.TxtCariNama.Location = New System.Drawing.Point(576, 35)
+        Me.TxtCariNama.Location = New System.Drawing.Point(432, 28)
+        Me.TxtCariNama.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.TxtCariNama.Name = "TxtCariNama"
-        Me.TxtCariNama.Size = New System.Drawing.Size(346, 27)
+        Me.TxtCariNama.Size = New System.Drawing.Size(260, 23)
         Me.TxtCariNama.TabIndex = 5
         '
         'CbNamaJurusan
@@ -143,26 +152,29 @@ Partial Class FrmDataMahasiswa
         Me.CbNamaJurusan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CbNamaJurusan.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CbNamaJurusan.FormattingEnabled = True
-        Me.CbNamaJurusan.Location = New System.Drawing.Point(15, 33)
+        Me.CbNamaJurusan.Location = New System.Drawing.Point(11, 27)
+        Me.CbNamaJurusan.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.CbNamaJurusan.Name = "CbNamaJurusan"
-        Me.CbNamaJurusan.Size = New System.Drawing.Size(478, 27)
+        Me.CbNamaJurusan.Size = New System.Drawing.Size(360, 24)
         Me.CbNamaJurusan.TabIndex = 4
         '
         'CariNama
         '
         Me.CariNama.AutoSize = True
-        Me.CariNama.Location = New System.Drawing.Point(573, 14)
+        Me.CariNama.Location = New System.Drawing.Point(430, 11)
+        Me.CariNama.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.CariNama.Name = "CariNama"
-        Me.CariNama.Size = New System.Drawing.Size(99, 19)
+        Me.CariNama.Size = New System.Drawing.Size(82, 16)
         Me.CariNama.TabIndex = 3
         Me.CariNama.Text = "CARI NAMA"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(12, 14)
+        Me.Label2.Location = New System.Drawing.Point(9, 11)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(110, 19)
+        Me.Label2.Size = New System.Drawing.Size(92, 16)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "NAMA PRODI"
         '
@@ -170,18 +182,20 @@ Partial Class FrmDataMahasiswa
         '
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel2.Location = New System.Drawing.Point(0, 624)
+        Me.Panel2.Location = New System.Drawing.Point(0, 507)
+        Me.Panel2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1463, 25)
+        Me.Panel2.Size = New System.Drawing.Size(1097, 20)
         Me.Panel2.TabIndex = 8
         '
         'Panel3
         '
         Me.Panel3.Controls.Add(Me.DataGridMahasiswa)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel3.Location = New System.Drawing.Point(0, 134)
+        Me.Panel3.Location = New System.Drawing.Point(0, 109)
+        Me.Panel3.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(1463, 490)
+        Me.Panel3.Size = New System.Drawing.Size(1097, 398)
         Me.Panel3.TabIndex = 9
         '
         'DataGridMahasiswa
@@ -190,23 +204,25 @@ Partial Class FrmDataMahasiswa
         Me.DataGridMahasiswa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridMahasiswa.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridMahasiswa.Location = New System.Drawing.Point(0, 0)
+        Me.DataGridMahasiswa.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.DataGridMahasiswa.Name = "DataGridMahasiswa"
         Me.DataGridMahasiswa.ReadOnly = True
         Me.DataGridMahasiswa.RowHeadersWidth = 51
         Me.DataGridMahasiswa.RowTemplate.Height = 24
-        Me.DataGridMahasiswa.Size = New System.Drawing.Size(1463, 490)
+        Me.DataGridMahasiswa.Size = New System.Drawing.Size(1097, 398)
         Me.DataGridMahasiswa.TabIndex = 10
         '
         'FrmDataMahasiswa
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1463, 649)
+        Me.ClientSize = New System.Drawing.Size(1097, 527)
         Me.ControlBox = False
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Label1)
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "FrmDataMahasiswa"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FrmDataMahasiswa"
