@@ -164,7 +164,7 @@ Partial Class TentangAplikasi
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "TentangAplikasi"
-        Me.Padding = New System.Windows.Forms.Padding(9, 9, 9, 9)
+        Me.Padding = New System.Windows.Forms.Padding(9)
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "TentangAplikasi"

@@ -50,6 +50,7 @@ Public Class FrmMahasiswa
                 MsgBox("Data berhasil di simpan.", vbInformation, "INFORMASI")
                 Me.Close()
                 FrmDataMahasiswa.Enabled = True
+                FrmDataMahasiswa.FilterByNamaProdiMahasiswa()
 
 
             ElseIf BtnSimpan.Text = "UBAH" Then
@@ -87,17 +88,12 @@ Public Class FrmMahasiswa
             CMD = New MySqlCommand(SQLDelete, DBKoneksi)
             CMD.ExecuteReader()
             Call FrmDataMahasiswa.TampilkanDataGridMahasiswa()
-            BtnSimpan.Enabled = False
-
-            BtnSimpan.BackColor = Color.Red
-            BtnHapus.Enabled = False
-            BtnHapus.BackColor = Color.Red
             MsgBox("Data berhasil dihapus", vbInformation, "INFORMASi")
             Me.Close()
+            FrmDataMahasiswa.FilterByNamaProdiMahasiswa()
         Else
             Call FrmDataMahasiswa.TampilkanDataGridMahasiswa()
-            BtnHapus.Enabled = False
-            BtnHapus.BackColor = Color.Red
+            Me.Close()
         End If
     End Sub
 

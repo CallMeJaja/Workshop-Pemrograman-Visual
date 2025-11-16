@@ -21,7 +21,7 @@ Public Class FrmDataMahasiswa
     End Function
     ' Create DataGridView
     Sub EnableDataGridMahasiswa()
-        With DataGridMahasiswa
+        With DataGridMahasiswa()
             .EnableHeadersVisualStyles = False
             Try
                 .Font = New Font(.Font, FontStyle.Bold)
@@ -162,7 +162,6 @@ Public Class FrmDataMahasiswa
             CbNamaJurusan.Text = DR.Item("Nm_Prodi")
         Else
             MsgBox("Data Mahasiswa Jurusan " & CbNamaJurusan.Text & " belum ada", vbCritical + vbOKOnly, "Peringatan")
-
             Call TampilkanDataGridMahasiswa()
             CbNamaJurusan.Select()
             Exit Sub
@@ -200,13 +199,6 @@ Public Class FrmDataMahasiswa
             Me.Enabled = False
             FrmMahasiswa.CmbJurusan.Text = CbNamaJurusan.Text
             FrmMahasiswa.LbKdJurusan.Text = LblKdProdi.Text
-            FrmMahasiswa.BtnHapus.Enabled = False
-            FrmMahasiswa.BtnHapus.BackColor = Color.Red
-
-            ' DEBUG
-            'MsgBox(CbNamaJurusan.Text)
-            'MsgBox(GetKodeProdi(CbNamaJurusan.Text))
-
             Call BuatNIMMahasiswa(LblKdProdi.Text)
         End If
     End Sub
@@ -217,34 +209,33 @@ Public Class FrmDataMahasiswa
         ElseIf CbNamaJurusan.SelectedIndex = -1 Then
             MsgBox("Silahkan pilih nama jurusan!", vbCritical + vbYes, "Peringatan")
         Else
-            DA = New MySqlDataAdapter("SELECT
-	    tbl_mahasiswa.*, 
-	    tbl_prodi.Nm_Prodi
-    FROM
-	    tbl_mahasiswa
-	    INNER JOIN
-	    tbl_prodi
-	    ON 
-		    tbl_prodi.Kd_Prodi = tbl_mahasiswa.Kd_Prodi
-    WHERE
-	tbl_prodi.Nm_Prodi = '" & CbNamaJurusan.Text & "' AND
-	tbl_mahasiswa.Nm_Mhs LIKE '%" & TxtCariNama.Text & "%'", DBKoneksi)
+            DA = New MySqlDataAdapter("SELECT DISTINCT
+	                                    tbl_mahasiswa.NIK_Mhs, 
+	                                    tbl_mahasiswa.Nm_Mhs, 
+	                                    tbl_mahasiswa.JK_Mhs, 
+	                                    tbl_mahasiswa.tmptlahir_Mhs, 
+	                                    tbl_mahasiswa.TglLahir_Mhs, 
+	                                    tbl_mahasiswa.Alamat_Mhs, 
+	                                    tbl_prodi.Nm_Prodi, 
+	                                    tbl_mahasiswa.Status_Mhs
+                                    FROM
+	                                    tbl_mahasiswa
+	                                    INNER JOIN
+	                                    tbl_prodi
+	                                    ON 
+		                                    tbl_prodi.Kd_Prodi = tbl_mahasiswa.Kd_Prodi
+                                    WHERE
+	                                    tbl_prodi.Nm_Prodi LIKE '" + CbNamaJurusan.Text + "' AND tbl_mahasiswa.Nm_Mhs LIKE '%" & TxtCariNama.Text & "%'", DBKoneksi)
             DS = New DataSet()
-            DA.Fill(DS)
-            DataGridMahasiswa.DataSource = DS.Tables(0)
-        End If
-        DataGridMahasiswa.Enabled = True
-    End Sub
-    Private Sub BtnKeluar_Click(sender As Object, e As EventArgs) Handles BtnKeluar.Click
-        If BtnKeluar.Text = "KELUAR" Then
-            Pesan = MsgBox("Anda yakin ingin keluar dari data mahasiswa?", vbQuestion + vbYesNo, "Informasi")
-            If Pesan = vbYes Then
-                Me.Close()
+            Dim rowCount As Integer = DA.Fill(DS)
+
+            If rowCount > 0 Then
+                DataGridMahasiswa.DataSource = DS.Tables(0)
+                DataGridMahasiswa.Enabled = True
+            Else
+                MsgBox("Data tidak ditemukan!", vbInformation + vbOKOnly, "INFORMASI")
+                TampilkanDataGridMahasiswa()
             End If
-        Else
-            BtnTambahData.Text = "&AKTIF FORM"
-            BtnTambahData.Enabled = True
-            BtnTambahData.BackColor = Color.LightGray
         End If
     End Sub
     Sub BuatNIMMahasiswa(KodeProdi As String)
@@ -252,9 +243,6 @@ Public Class FrmDataMahasiswa
             Call KoneksiDB()
             ' Ambil Tahun Sekarang
             Dim TahunSekarang As String = Format(Date.Now, "yyyy")
-
-            'MsgBox("BEFORE")
-            'MsgBox("DEBUG : " & TahunSekarang & KodeProdi)
 
             ' Ambil NIM terakhir berdasarkan tahun dan kode prodi
             CMD = New MySqlCommand("SELECT
@@ -292,7 +280,8 @@ ORDER BY
             DS = New DataSet()
             DA.Fill(DS)
             DataGridMahasiswa.DataSource = DS.Tables(0)
-
+            CbNamaJurusan.SelectedIndex = -1
+            LblKdProdi.Text = ""
         End If
     End Sub
 
@@ -300,16 +289,24 @@ ORDER BY
         On Error Resume Next
         Dim Baris As Integer
         FrmMahasiswa.Show()
-        'FrmMahasiswa.MdiParent = FrmMenuUtama
+        FrmMahasiswa.MdiParent = FrmMenuUtama
 
         FrmMahasiswa.BtnSimpan.Text = "UBAH"
         FrmMahasiswa.BtnKeluar.Text = "BATAL"
 
-        CMD = New MySqlCommand("SELECT * FROM tbl_mahasiswa WHERE NIK_Mhs = '" & DataGridMahasiswa.Item(0, Baris).Value & "'", DBKoneksi)
+        CMD = New MySqlCommand("SELECT         
+                                tbl_mahasiswa.NIK_Mhs, 
+	                            tbl_mahasiswa.Nm_Mhs, 
+	                            tbl_mahasiswa.JK_Mhs, 
+	                            tbl_mahasiswa.tmptlahir_Mhs, 
+	                            tbl_mahasiswa.TglLahir_Mhs, 
+	                            tbl_mahasiswa.Alamat_Mhs, 
+	                            tbl_mahasiswa.Status_Mhs, 
+                                FROM tbl_mahasiswa WHERE NIK_Mhs = '" & DataGridMahasiswa.Item(0, Baris).Value & "'", DBKoneksi)
         DR = CMD.ExecuteReader
         DR.Read()
 
-        With DataGridMahasiswa
+        With DataGridMahasiswa()
             Baris = .CurrentRow.Index
             FrmMahasiswa.LbNimVal.Text = .Item(0, Baris).Value
             FrmMahasiswa.TxtNama.Text = .Item(1, Baris).Value
@@ -321,5 +318,18 @@ ORDER BY
             FrmMahasiswa.CmbJurusan.Text = CbNamaJurusan.Text
             FrmMahasiswa.CmbStatusMahasiswa.SelectedItem = .Item(7, Baris).Value
         End With
+    End Sub
+
+    Private Sub BtnKeluar_Click(sender As Object, e As EventArgs) Handles BtnKeluar.Click
+        If BtnKeluar.Text = "KELUAR" Then
+            Pesan = MsgBox("Anda yakin ingin keluar dari data mahasiswa?", vbQuestion + vbYesNo, "Informasi")
+            If Pesan = vbYes Then
+                Me.Close()
+            End If
+        Else
+            BtnTambahData.Text = "&AKTIF FORM"
+            BtnTambahData.Enabled = True
+            BtnTambahData.BackColor = Color.LightGray
+        End If
     End Sub
 End Class
