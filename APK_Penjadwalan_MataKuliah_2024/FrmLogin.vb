@@ -1,102 +1,137 @@
 ﻿Imports MySql.Data.MySqlClient
+
 Public Class FrmLogin
 
+    Private Const MAX_LOGIN_ATTEMPTS As Integer = 3
+    Private loginAttempts As Integer = 0
+
+    Private Sub FrmLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Call ResetForm()
+    End Sub
+
     Private Sub BtnLogin_Click(sender As Object, e As EventArgs) Handles BtnLogin.Click
-        Call KoneksiDB()
-
-        If TxtUser.Text = "" Then
-            MsgBox("Nama User Tidak Boleh Kosong", vbExclamation, "KOSONG!")
-            TxtUser.Focus()
-            Exit Sub
-        End If
-
-        If TxtPwd.Text = "" Then
-            MsgBox("Password Tidak Boleh Kosong", vbExclamation, "KOSONG!")
-            TxtPwd.Focus()
-            Exit Sub
-        End If
-
+        If Not ValidateInput() Then Exit Sub
         Try
-            Dim checkUserQuery As String = "SELECT * FROM tbl_user WHERE Nm_User = @user"
-            CMD = New MySqlCommand(checkUserQuery, DBKoneksi)
-            CMD.Parameters.AddWithValue("@user", TxtUser.Text)
-
-            DR = CMD.ExecuteReader()
-
-            If DR.Read() Then
-                Dim storedPassword As String = DR("Pass_User").ToString()
-                Dim level As String = DR("Level_User").ToString()
-                Dim namaUser As String = DR("Nm_User").ToString()
-
-                DR.Close()
-
-                If TxtPwd.Text = storedPassword Then
-                    Hitung = 0
-
-                    MsgBox("Selamat datang, " & namaUser, vbInformation, "Login Berhasil")
-
-                    If level = "Administrator" AndAlso namaUser = "Reza" Then
-                        With FrmMenuUtama
-                            Me.Close()
-                            .ToolStripDropDownButton2.Enabled = True
-                            .ToolStripDropDownButton3.Enabled = True
-                            .LoginSistemToolStripMenuItem.Enabled = False
-                            .LogOutSistemToolStripMenuItem.Enabled = True
-                        End With
-
-                    ElseIf level = "Mahasiswa" Then
-                        Me.Close()
-                        FrmMenuUtama.Show()
-                        With FrmMenuUtama
-                            .ToolStripDropDownButton3.Enabled = True
-                            .LoginSistemToolStripMenuItem.Enabled = False
-                            .LogOutSistemToolStripMenuItem.Enabled = True
-                        End With
-                    Else
-                        MsgBox("Anda tidak berhak menggunakan program ini!", vbCritical + vbOKOnly, "INFORMASI")
-                        TxtUser.Text = ""
-                        TxtPwd.Text = ""
-                    End If
-
-                    isLogin = True
-
-                Else
-                    Hitung += 1
-
-                    If Hitung < 3 Then
-                        MsgBox("Password salah! Percobaan ke-" & Hitung & " dari 3.", vbExclamation, "Warning")
-                        TxtPwd.Text = ""
-                        TxtPwd.Focus()
-                    Else
-                        MsgBox("Anda telah gagal login 3 kali! Aplikasi akan ditutup.", vbCritical, "Akses Ditolak")
-                        Me.Close()
-                    End If
-                End If
-
-            Else
-                MsgBox("Username tidak ditemukan!", vbCritical, "Peringatan")
-                TxtUser.Text = ""
-                TxtPwd.Text = ""
-                TxtUser.Focus()
-            End If
-
+            Call KoneksiDB()
+            Call ProcessLogin()
+        Catch ex As MySqlException
+            MsgBox("Error Database: " & ex.Message, vbCritical, "ERROR")
         Catch ex As Exception
-            MsgBox("Terjadi kesalahan: " & ex.Message, vbCritical, "Error")
-
+            MsgBox("Terjadi kesalahan: " & ex.Message, vbCritical, "ERROR")
         Finally
-            If DR IsNot Nothing AndAlso Not DR.IsClosed Then DR.Close()
-            DBKoneksi.Close()
+            Call CloseConnection()
         End Try
     End Sub
 
     Private Sub BtnBatal_Click(sender As Object, e As EventArgs) Handles BtnBatal.Click
-        If MsgBox("Anda yakin ingin keluar?", vbQuestion + vbYesNo, "Warning") = vbYes Then
+        If MsgBox("Anda yakin ingin keluar?", vbQuestion + vbYesNo, "Konfirmasi") = vbYes Then
             Me.Close()
         End If
-
     End Sub
 
-    Private Sub FrmLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Function ValidateInput() As Boolean
+        If String.IsNullOrWhiteSpace(TxtUser.Text) Then
+            MsgBox("Nama User tidak boleh kosong!", vbExclamation, "PERINGATAN")
+            TxtUser.Focus()
+            Return False
+        End If
 
+        If String.IsNullOrWhiteSpace(TxtPwd.Text) Then
+            MsgBox("Password tidak boleh kosong!", vbExclamation, "PERINGATAN")
+            TxtPwd.Focus()
+            Return False
+        End If
+
+        Return True
+    End Function
+
+    Sub ProcessLogin()
+        Dim SQLLogin As String = "SELECT Nm_User, Pass_User, Level_User FROM tbl_user WHERE Nm_User = @user"
+        CMD = New MySqlCommand(SQLLogin, DBKoneksi)
+        CMD.Parameters.AddWithValue("@user", TxtUser.Text.Trim())
+
+        DR = CMD.ExecuteReader()
+
+        If DR.Read() Then
+            Dim storedPassword As String = DR("Pass_User").ToString()
+            Nama_User = DR("Nm_User").ToString()
+            Role = DR("Level_User").ToString()
+            DR.Close()
+
+            If TxtPwd.Text = storedPassword Then
+                Call HandleSuccessfulLogin()
+            Else
+                Call HandleFailedLogin()
+            End If
+        Else
+            DR.Close()
+            MsgBox("Username tidak ditemukan!", vbCritical, "PERINGATAN")
+            Call ResetForm()
+            TxtUser.Focus()
+        End If
     End Sub
+
+    Sub HandleSuccessfulLogin()
+        loginAttempts = 0
+        isLogin = True
+
+        MsgBox("Selamat datang, " & Nama_User & "!", vbInformation, "Login Berhasil")
+
+        Select Case Role.ToUpper()
+            Case "ADMINISTRATOR"
+                Call SetAdministratorMenu()
+            Case "MAHASISWA"
+                Call SetMahasiswaMenu()
+            Case Else
+                MsgBox("Role tidak dikenali! Hubungi administrator.", vbCritical, "ERROR")
+                Call ResetForm()
+                Exit Sub
+        End Select
+
+        Me.Close()
+    End Sub
+
+    Sub HandleFailedLogin()
+        loginAttempts += 1
+
+        If loginAttempts < MAX_LOGIN_ATTEMPTS Then
+            MsgBox("Password salah! Percobaan ke-" & loginAttempts & " dari " & MAX_LOGIN_ATTEMPTS & ".", vbExclamation, "PERINGATAN")
+            TxtPwd.Clear()
+            TxtPwd.Focus()
+        Else
+            MsgBox("Anda telah gagal login " & MAX_LOGIN_ATTEMPTS & " kali! Silahkan coba lagi.", vbCritical, "Akses Ditolak")
+            Me.Close()
+        End If
+    End Sub
+
+    Sub SetAdministratorMenu()
+        With FrmMenuUtama
+            .ToolStripDropDownButton2.Enabled = True
+            .ToolStripDropDownButton3.Enabled = True
+            .LoginSistemToolStripMenuItem.Enabled = False
+            .LogOutSistemToolStripMenuItem.Enabled = True
+        End With
+    End Sub
+
+    Sub SetMahasiswaMenu()
+        With FrmMenuUtama
+            .ToolStripDropDownButton2.Enabled = True
+            .ToolStripDropDownButton3.Enabled = True
+            .DataMahasiswaToolStripMenuItem.Enabled = False
+            .LoginSistemToolStripMenuItem.Enabled = False
+            .LogOutSistemToolStripMenuItem.Enabled = True
+        End With
+    End Sub
+
+    Sub ResetForm()
+        TxtUser.Clear()
+        TxtPwd.Clear()
+        TxtUser.Focus()
+    End Sub
+
+    Sub CloseConnection()
+        If DR IsNot Nothing AndAlso Not DR.IsClosed Then DR.Close()
+        If DBKoneksi IsNot Nothing AndAlso DBKoneksi.State = ConnectionState.Open Then DBKoneksi.Close()
+    End Sub
+
 End Class

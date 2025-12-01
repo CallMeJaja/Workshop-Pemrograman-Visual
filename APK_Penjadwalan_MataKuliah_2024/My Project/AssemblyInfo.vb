@@ -10,9 +10,9 @@ Imports System.Runtime.InteropServices
 
 <Assembly: AssemblyTitle("SISTEM INFORMASI PENJADWALAN MATA KULIAH")>
 <Assembly: AssemblyDescription("Aplikasi ini dibuat untuk memenuhi salah satu syarat Ujian Tengah Semester Mata Kuliah Pemrograman Menggunakan Visual Basic .NET 2019 dengan database MySQL")>
-<Assembly: AssemblyCompany("POLITENIK ENJINERING INDOARAM")>
+<Assembly: AssemblyCompany("Teknologi Rekayasa Perangkat Lunak")>
 <Assembly: AssemblyProduct("Sistem Informasi Penjadwalan Mata Kuliah")>
-<Assembly: AssemblyCopyright("Copyright ©  Reza A Maulana 2025")>
+<Assembly: AssemblyCopyright("Copyright © 2025  Reza Asriano Maulana (202404021)")>
 <Assembly: AssemblyTrademark("Teknologi Rekayasa Perangkat Lunak")>
 
 <Assembly: ComVisible(False)>
