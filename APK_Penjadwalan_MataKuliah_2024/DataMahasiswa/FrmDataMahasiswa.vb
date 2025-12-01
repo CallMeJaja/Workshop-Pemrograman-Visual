@@ -169,10 +169,6 @@ Public Class FrmDataMahasiswa
             MsgBox("Error: " & ex.Message, vbCritical, "ERROR")
         End Try
     End Sub
-
-    ' HAPUS method FilterByNamaProdi() - diganti dengan FilterMahasiswa()
-
-    ' UPDATE: Tambah "SEMUA PRODI" di index 0
     Sub TampilkanFilterDataProdi()
         Try
             Call KoneksiDB()
@@ -297,7 +293,6 @@ Public Class FrmDataMahasiswa
             MsgBox("Error styling grid: " & ex.Message, vbCritical, "ERROR")
         End Try
     End Sub
-
     Private Sub LoadKodeProdi()
         Try
             Dim sqlKode As String = "SELECT Kd_Prodi FROM tbl_prodi WHERE Nm_Prodi = @NmProdi"
@@ -316,7 +311,6 @@ Public Class FrmDataMahasiswa
         End Try
     End Sub
 
-    ' UPDATE: Tambah filter prodi di pencarian
     Private Sub CariMahasiswa()
         If Not ValidateCariData() Then Exit Sub
 
@@ -366,9 +360,8 @@ Public Class FrmDataMahasiswa
             MsgBox("Error: " & ex.Message, vbCritical, "ERROR")
         End Try
     End Sub
-
-    ' UPDATE: Validasi tambah data - cek jika "SEMUA PRODI" dipilih
     Private Function ValidateTambahData() As Boolean
+        ' cek jika "SEMUA PRODI" dipilih
         If CbNamaJurusan.SelectedIndex = -1 OrElse CbNamaJurusan.SelectedIndex = 0 Then
             MsgBox("Silahkan pilih nama jurusan terlebih dahulu!" & vbCrLf & "(Tidak bisa memilih 'SEMUA PRODI')", vbExclamation, "PERINGATAN")
             CbNamaJurusan.Focus()
@@ -376,9 +369,8 @@ Public Class FrmDataMahasiswa
         End If
         Return True
     End Function
-
-    ' UPDATE: Validasi cari data - tidak wajib pilih prodi
     Private Function ValidateCariData() As Boolean
+        ' Validasi cari data - tidak wajib pilih prodi
         If String.IsNullOrWhiteSpace(TxtCariNama.Text) Then
             MsgBox("Silahkan masukkan nama mahasiswa!", vbExclamation, "PERINGATAN")
             TxtCariNama.Focus()
@@ -413,7 +405,8 @@ Public Class FrmDataMahasiswa
             .MdiParent = FrmMenuUtama
             .Show()
             .CmbJurusan.Text = CbNamaJurusan.Text
-            .LbKdJurusan.Text = LblKdProdi.Text
+            '.LbKdJurusan.Text = LblKdProdi.Text
+            .LbKdJurusan.Text = Kode_Jurusan
             .CmbJurusan.Enabled = False
 
             If Not isEditMode Then
@@ -458,7 +451,6 @@ Public Class FrmDataMahasiswa
     Private Sub LoadDataToFormInput(rowIndex As Integer)
         Try
             isLoadingData = True
-
 
             Me.Enabled = False
 
