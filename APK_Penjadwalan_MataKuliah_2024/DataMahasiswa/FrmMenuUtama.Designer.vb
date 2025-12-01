@@ -47,7 +47,7 @@ Partial Class FrmMenuUtama
         Me.ToolStripDropDownButton1.Image = CType(resources.GetObject("ToolStripDropDownButton1.Image"), System.Drawing.Image)
         Me.ToolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripDropDownButton1.Name = "ToolStripDropDownButton1"
-        Me.ToolStripDropDownButton1.Size = New System.Drawing.Size(59, 20)
+        Me.ToolStripDropDownButton1.Size = New System.Drawing.Size(60, 20)
         Me.ToolStripDropDownButton1.Text = "ADMIN"
         '
         'LoginSistemToolStripMenuItem
@@ -80,20 +80,20 @@ Partial Class FrmMenuUtama
         Me.ToolStripDropDownButton2.Image = CType(resources.GetObject("ToolStripDropDownButton2.Image"), System.Drawing.Image)
         Me.ToolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripDropDownButton2.Name = "ToolStripDropDownButton2"
-        Me.ToolStripDropDownButton2.Size = New System.Drawing.Size(97, 20)
+        Me.ToolStripDropDownButton2.Size = New System.Drawing.Size(98, 20)
         Me.ToolStripDropDownButton2.Text = "DATA MASTER"
         '
         'DataMahasiswaToolStripMenuItem
         '
         Me.DataMahasiswaToolStripMenuItem.Name = "DataMahasiswaToolStripMenuItem"
-        Me.DataMahasiswaToolStripMenuItem.Size = New System.Drawing.Size(159, 22)
+        Me.DataMahasiswaToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.DataMahasiswaToolStripMenuItem.Text = "Data Mahasiswa"
         '
         'DataProdiToolStripMenuItem
         '
         Me.DataProdiToolStripMenuItem.Name = "DataProdiToolStripMenuItem"
-        Me.DataProdiToolStripMenuItem.Size = New System.Drawing.Size(159, 22)
-        Me.DataProdiToolStripMenuItem.Text = "Data Prodi"
+        Me.DataProdiToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.DataProdiToolStripMenuItem.Text = "Data Jurusan"
         '
         'ToolStripDropDownButton3
         '
@@ -102,7 +102,7 @@ Partial Class FrmMenuUtama
         Me.ToolStripDropDownButton3.Image = CType(resources.GetObject("ToolStripDropDownButton3.Image"), System.Drawing.Image)
         Me.ToolStripDropDownButton3.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripDropDownButton3.Name = "ToolStripDropDownButton3"
-        Me.ToolStripDropDownButton3.Size = New System.Drawing.Size(85, 20)
+        Me.ToolStripDropDownButton3.Size = New System.Drawing.Size(86, 20)
         Me.ToolStripDropDownButton3.Text = "ABOUT BOX"
         '
         'ABOUTBOXToolStripMenuItem

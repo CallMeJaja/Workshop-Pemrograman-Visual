@@ -385,7 +385,6 @@ Public Class FrmDataMahasiswa
 
         Return True
     End Function
-
     Private Function ValidateGridSelection(rowIndex As Integer) As Boolean
         If DataGridMahasiswa.Rows.Count = 0 OrElse DataGridMahasiswa.CurrentRow Is Nothing Then
             MsgBox("Tidak ada data yang dipilih!", vbExclamation, "PERINGATAN")
