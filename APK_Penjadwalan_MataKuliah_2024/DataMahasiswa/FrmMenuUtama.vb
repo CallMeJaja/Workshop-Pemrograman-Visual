@@ -7,8 +7,8 @@
     Sub UpdateMenuState()
         Dim isUserLoggedIn As Boolean = isLogin
 
-        ToolStripDropDownButton2.Enabled = isUserLoggedIn
-        ToolStripDropDownButton3.Enabled = isUserLoggedIn
+        ToolStripDropDownDataMasterButton2.Enabled = isUserLoggedIn
+        ToolStripDropDownAboutButton3.Enabled = isUserLoggedIn
         LoginSistemToolStripMenuItem.Enabled = Not isUserLoggedIn
         LogOutSistemToolStripMenuItem.Enabled = isUserLoggedIn
     End Sub
@@ -31,7 +31,7 @@
         Call ShowMdiChild(FrmDataJurusan)
     End Sub
 
-    Private Sub ABOUTBOXToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ABOUTBOXToolStripMenuItem.Click
+    Private Sub ABOUTBOXToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TentangAplikasiToolStripMenuItem.Click
         Call ShowMdiChild(TentangAplikasi)
     End Sub
 

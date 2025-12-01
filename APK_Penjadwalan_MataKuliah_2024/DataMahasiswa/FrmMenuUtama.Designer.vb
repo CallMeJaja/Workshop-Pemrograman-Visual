@@ -23,16 +23,16 @@ Partial Class FrmMenuUtama
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmMenuUtama))
-        Me.ToolStripDropDownButton1 = New System.Windows.Forms.ToolStripDropDownButton()
+        Me.ToolStripDropDownAdminButton1 = New System.Windows.Forms.ToolStripDropDownButton()
         Me.LoginSistemToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogOutSistemToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.ExitToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripDropDownButton2 = New System.Windows.Forms.ToolStripDropDownButton()
+        Me.ToolStripDropDownDataMasterButton2 = New System.Windows.Forms.ToolStripDropDownButton()
         Me.DataMahasiswaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DataProdiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripDropDownButton3 = New System.Windows.Forms.ToolStripDropDownButton()
-        Me.ABOUTBOXToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripDropDownAboutButton3 = New System.Windows.Forms.ToolStripDropDownButton()
+        Me.TentangAplikasiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.StatusStrip2 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
@@ -40,48 +40,48 @@ Partial Class FrmMenuUtama
         Me.StatusStrip2.SuspendLayout()
         Me.SuspendLayout()
         '
-        'ToolStripDropDownButton1
+        'ToolStripDropDownAdminButton1
         '
-        Me.ToolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ToolStripDropDownButton1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LoginSistemToolStripMenuItem, Me.LogOutSistemToolStripMenuItem, Me.ToolStripSeparator1, Me.ExitToolStripMenuItem1})
-        Me.ToolStripDropDownButton1.Image = CType(resources.GetObject("ToolStripDropDownButton1.Image"), System.Drawing.Image)
-        Me.ToolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripDropDownButton1.Name = "ToolStripDropDownButton1"
-        Me.ToolStripDropDownButton1.Size = New System.Drawing.Size(60, 20)
-        Me.ToolStripDropDownButton1.Text = "ADMIN"
+        Me.ToolStripDropDownAdminButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripDropDownAdminButton1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LoginSistemToolStripMenuItem, Me.LogOutSistemToolStripMenuItem, Me.ToolStripSeparator1, Me.ExitToolStripMenuItem1})
+        Me.ToolStripDropDownAdminButton1.Image = CType(resources.GetObject("ToolStripDropDownAdminButton1.Image"), System.Drawing.Image)
+        Me.ToolStripDropDownAdminButton1.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripDropDownAdminButton1.Name = "ToolStripDropDownAdminButton1"
+        Me.ToolStripDropDownAdminButton1.Size = New System.Drawing.Size(60, 20)
+        Me.ToolStripDropDownAdminButton1.Text = "ADMIN"
         '
         'LoginSistemToolStripMenuItem
         '
         Me.LoginSistemToolStripMenuItem.Name = "LoginSistemToolStripMenuItem"
-        Me.LoginSistemToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.LoginSistemToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.LoginSistemToolStripMenuItem.Text = "Login Sistem"
         '
         'LogOutSistemToolStripMenuItem
         '
         Me.LogOutSistemToolStripMenuItem.Name = "LogOutSistemToolStripMenuItem"
-        Me.LogOutSistemToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.LogOutSistemToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.LogOutSistemToolStripMenuItem.Text = "LogOut Sistem"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(149, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(177, 6)
         '
         'ExitToolStripMenuItem1
         '
         Me.ExitToolStripMenuItem1.Name = "ExitToolStripMenuItem1"
-        Me.ExitToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.ExitToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
         Me.ExitToolStripMenuItem1.Text = "Exit"
         '
-        'ToolStripDropDownButton2
+        'ToolStripDropDownDataMasterButton2
         '
-        Me.ToolStripDropDownButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ToolStripDropDownButton2.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DataMahasiswaToolStripMenuItem, Me.DataProdiToolStripMenuItem})
-        Me.ToolStripDropDownButton2.Image = CType(resources.GetObject("ToolStripDropDownButton2.Image"), System.Drawing.Image)
-        Me.ToolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripDropDownButton2.Name = "ToolStripDropDownButton2"
-        Me.ToolStripDropDownButton2.Size = New System.Drawing.Size(98, 20)
-        Me.ToolStripDropDownButton2.Text = "DATA MASTER"
+        Me.ToolStripDropDownDataMasterButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripDropDownDataMasterButton2.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DataMahasiswaToolStripMenuItem, Me.DataProdiToolStripMenuItem})
+        Me.ToolStripDropDownDataMasterButton2.Image = CType(resources.GetObject("ToolStripDropDownDataMasterButton2.Image"), System.Drawing.Image)
+        Me.ToolStripDropDownDataMasterButton2.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripDropDownDataMasterButton2.Name = "ToolStripDropDownDataMasterButton2"
+        Me.ToolStripDropDownDataMasterButton2.Size = New System.Drawing.Size(98, 20)
+        Me.ToolStripDropDownDataMasterButton2.Text = "DATA MASTER"
         '
         'DataMahasiswaToolStripMenuItem
         '
@@ -95,27 +95,27 @@ Partial Class FrmMenuUtama
         Me.DataProdiToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.DataProdiToolStripMenuItem.Text = "Data Jurusan"
         '
-        'ToolStripDropDownButton3
+        'ToolStripDropDownAboutButton3
         '
-        Me.ToolStripDropDownButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ToolStripDropDownButton3.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ABOUTBOXToolStripMenuItem})
-        Me.ToolStripDropDownButton3.Image = CType(resources.GetObject("ToolStripDropDownButton3.Image"), System.Drawing.Image)
-        Me.ToolStripDropDownButton3.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripDropDownButton3.Name = "ToolStripDropDownButton3"
-        Me.ToolStripDropDownButton3.Size = New System.Drawing.Size(86, 20)
-        Me.ToolStripDropDownButton3.Text = "ABOUT BOX"
+        Me.ToolStripDropDownAboutButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripDropDownAboutButton3.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TentangAplikasiToolStripMenuItem})
+        Me.ToolStripDropDownAboutButton3.Image = CType(resources.GetObject("ToolStripDropDownAboutButton3.Image"), System.Drawing.Image)
+        Me.ToolStripDropDownAboutButton3.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripDropDownAboutButton3.Name = "ToolStripDropDownAboutButton3"
+        Me.ToolStripDropDownAboutButton3.Size = New System.Drawing.Size(86, 20)
+        Me.ToolStripDropDownAboutButton3.Text = "ABOUT BOX"
         '
-        'ABOUTBOXToolStripMenuItem
+        'TentangAplikasiToolStripMenuItem
         '
-        Me.ABOUTBOXToolStripMenuItem.Name = "ABOUTBOXToolStripMenuItem"
-        Me.ABOUTBOXToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
-        Me.ABOUTBOXToolStripMenuItem.Text = "Tentang Aplikasi"
+        Me.TentangAplikasiToolStripMenuItem.Name = "TentangAplikasiToolStripMenuItem"
+        Me.TentangAplikasiToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.TentangAplikasiToolStripMenuItem.Text = "Tentang Aplikasi"
         '
         'StatusStrip1
         '
         Me.StatusStrip1.Dock = System.Windows.Forms.DockStyle.Top
         Me.StatusStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripDropDownButton1, Me.ToolStripDropDownButton2, Me.ToolStripDropDownButton3})
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripDropDownAdminButton1, Me.ToolStripDropDownDataMasterButton2, Me.ToolStripDropDownAboutButton3})
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 0)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Padding = New System.Windows.Forms.Padding(1, 0, 10, 0)
@@ -160,15 +160,15 @@ Partial Class FrmMenuUtama
 
     End Sub
 
-    Friend WithEvents ToolStripDropDownButton1 As ToolStripDropDownButton
+    Friend WithEvents ToolStripDropDownAdminButton1 As ToolStripDropDownButton
     Friend WithEvents LoginSistemToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LogOutSistemToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
     Friend WithEvents ExitToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents ToolStripDropDownButton2 As ToolStripDropDownButton
+    Friend WithEvents ToolStripDropDownDataMasterButton2 As ToolStripDropDownButton
     Friend WithEvents DataMahasiswaToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ToolStripDropDownButton3 As ToolStripDropDownButton
-    Friend WithEvents ABOUTBOXToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripDropDownAboutButton3 As ToolStripDropDownButton
+    Friend WithEvents TentangAplikasiToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents StatusStrip1 As StatusStrip
     Friend WithEvents StatusStrip2 As StatusStrip
     Friend WithEvents ToolStripStatusLabel1 As ToolStripStatusLabel

@@ -106,8 +106,8 @@ Public Class FrmLogin
 
     Sub SetAdministratorMenu()
         With FrmMenuUtama
-            .ToolStripDropDownButton2.Enabled = True
-            .ToolStripDropDownButton3.Enabled = True
+            .ToolStripDropDownDataMasterButton2.Enabled = True
+            .ToolStripDropDownAboutButton3.Enabled = True
             .LoginSistemToolStripMenuItem.Enabled = False
             .LogOutSistemToolStripMenuItem.Enabled = True
         End With
@@ -115,8 +115,8 @@ Public Class FrmLogin
 
     Sub SetMahasiswaMenu()
         With FrmMenuUtama
-            .ToolStripDropDownButton2.Enabled = True
-            .ToolStripDropDownButton3.Enabled = True
+            .ToolStripDropDownDataMasterButton2.Enabled = True
+            .ToolStripDropDownAboutButton3.Enabled = True
             .DataMahasiswaToolStripMenuItem.Enabled = False
             .LoginSistemToolStripMenuItem.Enabled = False
             .LogOutSistemToolStripMenuItem.Enabled = True
