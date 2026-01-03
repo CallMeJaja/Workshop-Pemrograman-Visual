@@ -47,7 +47,7 @@ Partial Class FrmMenuUtama
         Me.ToolStripDropDownAdminButton1.Image = CType(resources.GetObject("ToolStripDropDownAdminButton1.Image"), System.Drawing.Image)
         Me.ToolStripDropDownAdminButton1.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripDropDownAdminButton1.Name = "ToolStripDropDownAdminButton1"
-        Me.ToolStripDropDownAdminButton1.Size = New System.Drawing.Size(60, 20)
+        Me.ToolStripDropDownAdminButton1.Size = New System.Drawing.Size(59, 20)
         Me.ToolStripDropDownAdminButton1.Text = "ADMIN"
         '
         'LoginSistemToolStripMenuItem
@@ -80,7 +80,7 @@ Partial Class FrmMenuUtama
         Me.ToolStripDropDownDataMasterButton2.Image = CType(resources.GetObject("ToolStripDropDownDataMasterButton2.Image"), System.Drawing.Image)
         Me.ToolStripDropDownDataMasterButton2.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripDropDownDataMasterButton2.Name = "ToolStripDropDownDataMasterButton2"
-        Me.ToolStripDropDownDataMasterButton2.Size = New System.Drawing.Size(98, 20)
+        Me.ToolStripDropDownDataMasterButton2.Size = New System.Drawing.Size(97, 20)
         Me.ToolStripDropDownDataMasterButton2.Text = "DATA MASTER"
         '
         'DataMahasiswaToolStripMenuItem
@@ -102,7 +102,7 @@ Partial Class FrmMenuUtama
         Me.ToolStripDropDownAboutButton3.Image = CType(resources.GetObject("ToolStripDropDownAboutButton3.Image"), System.Drawing.Image)
         Me.ToolStripDropDownAboutButton3.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripDropDownAboutButton3.Name = "ToolStripDropDownAboutButton3"
-        Me.ToolStripDropDownAboutButton3.Size = New System.Drawing.Size(86, 20)
+        Me.ToolStripDropDownAboutButton3.Size = New System.Drawing.Size(85, 20)
         Me.ToolStripDropDownAboutButton3.Text = "ABOUT BOX"
         '
         'TentangAplikasiToolStripMenuItem

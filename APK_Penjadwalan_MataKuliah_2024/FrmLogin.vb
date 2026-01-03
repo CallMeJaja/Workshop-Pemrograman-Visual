@@ -22,7 +22,6 @@ Public Class FrmLogin
             Call CloseConnection()
         End Try
     End Sub
-
     Private Sub BtnBatal_Click(sender As Object, e As EventArgs) Handles BtnBatal.Click
         If MsgBox("Anda yakin ingin keluar?", vbQuestion + vbYesNo, "Konfirmasi") = vbYes Then
             Me.Close()

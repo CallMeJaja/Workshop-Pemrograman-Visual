@@ -1,7 +1,6 @@
 ﻿Imports MySql.Data.MySqlClient
 
 Public Class FrmInputMahasiswa
-
     Private Sub FrmMahasiswa_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Call InitializeComboBoxes()
     End Sub
@@ -54,6 +53,8 @@ Public Class FrmInputMahasiswa
     End Sub
 
     Sub InsertMahasiswa()
+        If IsNamaDuplikatDiAngkatan(isUpdate:=False) Then Exit Sub
+
         Dim sqlInsert As String = "INSERT INTO tbl_mahasiswa (NIK_Mhs, Nm_Mhs, JK_Mhs, tmptlahir_Mhs, TglLahir_Mhs, Alamat_Mhs, Kd_Prodi, Status_Mhs) " &
                                   "VALUES (@NIM, @Nama, @JK, @Tempat, @TglLahir, @Alamat, @KdProdi, @Status)"
 
@@ -62,10 +63,13 @@ Public Class FrmInputMahasiswa
         CMD.ExecuteNonQuery()
 
         MsgBox("Data berhasil disimpan!", vbInformation, "INFORMASI")
+        Call ResetForm()
         Call CloseAndRefresh()
     End Sub
 
     Sub UpdateMahasiswa()
+        If IsNamaDuplikatDiAngkatan(isUpdate:=True) Then Exit Sub
+
         Dim sqlUpdate As String = "UPDATE tbl_mahasiswa SET " &
                                   "Nm_Mhs = @Nama, JK_Mhs = @JK, tmptlahir_Mhs = @Tempat, " &
                                   "TglLahir_Mhs = @TglLahir, Alamat_Mhs = @Alamat, " &
@@ -107,7 +111,7 @@ Public Class FrmInputMahasiswa
         cmd.Parameters.AddWithValue("@Tempat", TxtTempatLahir.Text.Trim())
         cmd.Parameters.AddWithValue("@TglLahir", DateTimePickerMhs.Value.ToString("yyyy-MM-dd"))
         cmd.Parameters.AddWithValue("@Alamat", TxtAlamat.Text.Trim())
-        cmd.Parameters.AddWithValue("@KdProdi", Kode_Jurusan)
+        cmd.Parameters.AddWithValue("@KdProdi", LbKdJurusan.Text.Trim())
         cmd.Parameters.AddWithValue("@Status", CmbStatusMahasiswa.Text)
     End Sub
 
@@ -126,23 +130,50 @@ Public Class FrmInputMahasiswa
     End Function
 
     Private Sub InitializeComboBoxes()
-        CmbJenisKelamin.Items.AddRange({"LAKI-LAKI", "PEREMPUAN"})
-        CmbStatusMahasiswa.Items.AddRange({"AKTIF", "NON AKTIF", "CUTI AKADEMIK", "DROP OUT"})
+        If CmbJenisKelamin.Items.Count = 0 And CmbStatusMahasiswa.Items.Count = 0 Then
+            CmbJenisKelamin.Items.AddRange({"LAKI-LAKI", "PEREMPUAN"})
+            CmbStatusMahasiswa.Items.AddRange({"AKTIF", "NON AKTIF", "CUTI AKADEMIK", "DROP OUT"})
+        End If
     End Sub
 
     Private Sub CloseAndRefresh()
         Dim nimBaru As String = LbNimVal.Text
         Dim tahunAngkatan As String = ""
+        Dim kdProdi As String = LbKdJurusan.Text.Trim()
 
         If nimBaru.Length >= 4 Then
             tahunAngkatan = nimBaru.Substring(0, 4)
         End If
+
+
+        Call KoneksiDB()
+        Dim sqlCek As String = "SELECT COUNT(*) FROM tbl_mahasiswa WHERE Kd_Prodi = @kdProdi"
+        CMD = New MySqlCommand(sqlCek, DBKoneksi)
+        CMD.Parameters.AddWithValue("@kdProdi", kdProdi)
+        Dim sisaData As Integer = CInt(CMD.ExecuteScalar())
 
         Me.Close()
 
         With FrmDataMahasiswa
             .Enabled = True
             .RefreshWithFilter(tahunAngkatan)
+        End With
+
+        With FrmDataMhsPagination
+            .Enabled = True
+
+            If sisaData > 0 Then
+                .LoadTahunAngkatan(kdProdi)
+                If .CmbTahunAngkatan.Items.Count > 1 Then
+                    .CmbTahunAngkatan.SelectedIndex = 1
+                Else
+                    .CmbTahunAngkatan.SelectedIndex = 0
+                End If
+                .RefreshPaging()
+            Else
+                .ResetTampilan()
+                MsgBox("Data mahasiswa untuk prodi ini sekarang sudah kosong.", vbExclamation, "Informasi")
+            End If
         End With
     End Sub
 
@@ -181,4 +212,49 @@ Public Class FrmInputMahasiswa
         BtnKeluar.Text = "KELUAR"
     End Sub
 
+    Private Function IsNamaDuplikatDiAngkatan(isUpdate As Boolean)
+        Dim nim As String = LbNimVal.Text.Trim()
+        If nim.Length < 4 Then Return False
+
+        Dim tahun As String = nim.Substring(0, 4)
+        Dim nama As String = TxtNama.Text.Trim()
+        Dim kdProdi As String = LbKdJurusan.Text.Trim()
+
+        Dim sqlCek As String = "SELECT COUNT(*) FROM tbl_mahasiswa WHERE Nm_Mhs = @Nama AND LEFT(NIK_Mhs, 4) = @Tahun AND Kd_Prodi = @KdProdi"
+
+        If isUpdate Then
+            sqlCek &= " AND NIK_Mhs <> @NIM"
+        End If
+
+        CMD = New MySqlCommand(sqlCek, DBKoneksi)
+        CMD.Parameters.AddWithValue("@Nama", nama)
+        CMD.Parameters.AddWithValue("@Tahun", tahun)
+        CMD.Parameters.AddWithValue("@KdProdi", kdProdi)
+        If isUpdate Then
+            CMD.Parameters.AddWithValue("@NIM", nim)
+        End If
+
+        Dim jumlah As Integer = CInt(CMD.ExecuteScalar())
+
+        If jumlah > 0 Then
+            MsgBox("Nama Mahasiswa '" & nama & "' sudah terdaftar pada prodi ini di angkatan " & tahun & "!" & vbCrLf &
+               "Tidak boleh ada nama sama dalam prodi dan angkatan yang sama.", vbExclamation, "DUPLIKAT NAMA")
+            Return True
+        End If
+        Return False
+    End Function
+
+    Sub ResetForm()
+        TxtNama.Clear()
+        TxtTempatLahir.Clear()
+        DateTimePickerMhs.Value = Now
+        TxtAlamat.Clear()
+
+        CmbJenisKelamin.SelectedIndex = -1
+        CmbStatusMahasiswa.SelectedIndex = -1
+
+        TxtNama.Focus()
+        BtnSimpan.Text = "SIMPAN"
+        BtnSimpan.BackColor = Color.LightGray
+    End Sub
 End Class

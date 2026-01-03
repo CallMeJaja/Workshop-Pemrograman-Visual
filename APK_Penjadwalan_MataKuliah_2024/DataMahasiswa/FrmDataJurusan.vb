@@ -190,17 +190,14 @@ Public Class FrmDataJurusan
                     .TxtKdProdi.Text = DR("Kd_Prodi").ToString()
                     .TxtKdProdi.Enabled = False
 
-                    'Pisahkan nama prodi dan jenjang
                     Dim NamaProdi As String = DR("Nm_Prodi").ToString()
 
                     If NamaProdi.Contains("(") AndAlso NamaProdi.Contains(")") Then
                         Dim indexBuka As Integer = NamaProdi.LastIndexOf("(")
                         Dim indexTutup As Integer = NamaProdi.LastIndexOf(")")
 
-                        'Ambil nama prodi (sebelum kurung buka)
                         .TxtNmProdi.Text = NamaProdi.Substring(0, indexBuka).Trim()
 
-                        'Ambil jenjang (di dalam kurung)
                         Dim jenjang As String = NamaProdi.Substring(indexBuka + 1, indexTutup - indexBuka - 1).Trim()
                         .CmbJenjang.Text = jenjang
                     End If
@@ -217,5 +214,4 @@ Public Class FrmDataJurusan
             MsgBox("Error: " & ex.Message, vbCritical + vbOKOnly, "ERROR")
         End Try
     End Sub
-
 End Class

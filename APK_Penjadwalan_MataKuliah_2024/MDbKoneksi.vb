@@ -13,7 +13,6 @@ Module MDbKoneksi
     Public Nomor As Integer
     Public isLogin As Boolean = False
     Public Nama_User As String
-    Public Nama As String
     Public Nama_Jurusan As String
     Public Role As String
 
@@ -28,13 +27,12 @@ Module MDbKoneksi
 
     Public Sub KoneksiDB()
         Try
-            DBLokasi = "Server=localhost;Uid=root;pwd='';Database=dbpenjadwalan24021"
+            DBLokasi = "Server=localhost;Uid=root;pwd='';Database=db_akademik24"
 
             DBKoneksi = New MySqlConnection(DBLokasi)
             If DBKoneksi.State = ConnectionState.Closed Then
                 DBKoneksi.Open()
             End If
-            ' MsgBox("Koneksi Berhasil", vbOKOnly, "Koneksi Berhasil")
         Catch ex As Exception
             MsgBox("Koneksi Gagal!", vbExclamation, "Koneksi Gagal")
         End Try
@@ -44,6 +42,7 @@ Module MDbKoneksi
         DBKoneksi.Close()
         Return DBKoneksi
     End Function
+
     Public Function Rep(ByVal kata As String) As String
         Rep = Replace(kata, "'", "''")
         Return Rep

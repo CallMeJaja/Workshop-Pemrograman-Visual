@@ -8,7 +8,7 @@ Public Class FrmDataMahasiswa
         tbl_mahasiswa.tmptlahir_Mhs, 
         tbl_mahasiswa.TglLahir_Mhs, 
         tbl_mahasiswa.Alamat_Mhs, 
-        tbl_mahasiswa.Status_Mhs, 
+        tbl_mahasiswa.Status_Mhs,
         tbl_prodi.Nm_Prodi
     FROM tbl_mahasiswa
     INNER JOIN tbl_prodi ON tbl_mahasiswa.Kd_Prodi = tbl_prodi.Kd_Prodi"
@@ -58,17 +58,42 @@ Public Class FrmDataMahasiswa
         Try
             Call KoneksiDB()
 
-            ' Load kode prodi hanya jika bukan "SEMUA PRODI"
             If CbNamaJurusan.SelectedIndex > 0 Then
                 Call LoadKodeProdi()
+                Call LoadTahunAngkatanByProdi()
             Else
                 LblKdProdi.Text = ""
                 Kode_Jurusan = ""
+                Call LoadTahunAngkatan()
             End If
 
             Call FilterMahasiswa()
         Catch ex As Exception
             MsgBox("Error: " & ex.Message, vbCritical, "ERROR")
+        End Try
+    End Sub
+
+    Private Sub LoadTahunAngkatanByProdi()
+        Try
+            CmbTahunAngkatan.Items.Clear()
+            CmbTahunAngkatan.Items.Add("SEMUA TAHUN")
+            Dim SQLTahun As String = "SELECT DISTINCT LEFT(NIK_Mhs, 4) AS Tahun FROM tbl_mahasiswa INNER JOIN tbl_prodi ON tbl_mahasiswa.Kd_Prodi = tbl_prodi.Kd_Prodi WHERE tbl_prodi.Kd_Prodi = @KdProdi ORDER BY Tahun DESC"
+
+            Dim CMDTahun As New MySqlCommand(SQLTahun, DBKoneksi)
+            CMDTahun.Parameters.AddWithValue("@KdProdi", Kode_Jurusan)
+            Dim DRTahun As MySqlDataReader = CMDTahun.ExecuteReader()
+
+            While DRTahun.Read()
+                CmbTahunAngkatan.Items.Add(DRTahun("Tahun").ToString())
+            End While
+
+            DRTahun.Close()
+            CmbTahunAngkatan.SelectedIndex = 0
+        Catch ex As Exception
+            MsgBox("Error load tahun angkatan: " & ex.Message, vbCritical, "ERROR")
+            CmbTahunAngkatan.Items.Clear()
+            CmbTahunAngkatan.Items.Add("SEMUA TAHUN")
+            CmbTahunAngkatan.SelectedIndex = 0
         End Try
     End Sub
 
@@ -125,13 +150,11 @@ Public Class FrmDataMahasiswa
             Dim sqlFilter As String = SQL_SELECT_MAHASISWA
             Dim hasWhere As Boolean = False
 
-            ' Filter by Prodi (skip jika "SEMUA PRODI")
             If CbNamaJurusan.SelectedIndex > 0 Then
                 sqlFilter &= " WHERE tbl_prodi.Nm_Prodi = @NmProdi"
                 hasWhere = True
             End If
 
-            ' Filter by Tahun (skip jika "SEMUA TAHUN")
             If CmbTahunAngkatan.SelectedIndex > 0 Then
                 If hasWhere Then
                     sqlFilter &= " AND LEFT(tbl_mahasiswa.NIK_Mhs, 4) = @Tahun"
@@ -145,7 +168,6 @@ Public Class FrmDataMahasiswa
 
             DA = New MySqlDataAdapter(sqlFilter, DBKoneksi)
 
-            ' Add parameters
             If CbNamaJurusan.SelectedIndex > 0 Then
                 DA.SelectCommand.Parameters.AddWithValue("@NmProdi", CbNamaJurusan.Text.Trim())
             End If
@@ -178,14 +200,14 @@ Public Class FrmDataMahasiswa
             DR = CMD.ExecuteReader()
 
             CbNamaJurusan.Items.Clear()
-            CbNamaJurusan.Items.Add("SEMUA PRODI") ' Tambah opsi semua
+            CbNamaJurusan.Items.Add("SEMUA PRODI")
 
             While DR.Read()
                 CbNamaJurusan.Items.Add(DR("Nm_Prodi").ToString())
             End While
             DR.Close()
 
-            CbNamaJurusan.SelectedIndex = 0 ' Default "SEMUA PRODI"
+            CbNamaJurusan.SelectedIndex = 0
 
         Catch ex As Exception
             If DR IsNot Nothing AndAlso Not DR.IsClosed Then DR.Close()
@@ -196,7 +218,7 @@ Public Class FrmDataMahasiswa
     Sub LoadTahunAngkatan()
         Try
             Call KoneksiDB()
-
+            ' TODO: Ambil Tahun Angkatannya By Prodi
             Dim sqlTahun As String = "SELECT DISTINCT LEFT(NIK_Mhs, 4) AS Tahun FROM tbl_mahasiswa ORDER BY Tahun DESC"
             CMD = New MySqlCommand(sqlTahun, DBKoneksi)
             DR = CMD.ExecuteReader()
@@ -319,12 +341,10 @@ Public Class FrmDataMahasiswa
             Dim sqlCari As String = SQL_SELECT_MAHASISWA & " WHERE tbl_mahasiswa.Nm_Mhs LIKE @NmMhs"
             Dim hasWhere As Boolean = True
 
-            ' Tambah filter prodi jika bukan "SEMUA PRODI"
             If CbNamaJurusan.SelectedIndex > 0 Then
                 sqlCari = SQL_SELECT_MAHASISWA & " WHERE tbl_prodi.Nm_Prodi = @NmProdi AND tbl_mahasiswa.Nm_Mhs LIKE @NmMhs"
             End If
 
-            ' Tambah filter tahun jika dipilih
             If CmbTahunAngkatan.SelectedIndex > 0 Then
                 sqlCari &= " AND LEFT(tbl_mahasiswa.NIK_Mhs, 4) = @Tahun"
             End If
@@ -361,7 +381,6 @@ Public Class FrmDataMahasiswa
         End Try
     End Sub
     Private Function ValidateTambahData() As Boolean
-        ' cek jika "SEMUA PRODI" dipilih
         If CbNamaJurusan.SelectedIndex = -1 OrElse CbNamaJurusan.SelectedIndex = 0 Then
             MsgBox("Silahkan pilih nama jurusan terlebih dahulu!" & vbCrLf & "(Tidak bisa memilih 'SEMUA PRODI')", vbExclamation, "PERINGATAN")
             CbNamaJurusan.Focus()
@@ -404,7 +423,6 @@ Public Class FrmDataMahasiswa
             .MdiParent = FrmMenuUtama
             .Show()
             .CmbJurusan.Text = CbNamaJurusan.Text
-            '.LbKdJurusan.Text = LblKdProdi.Text
             .LbKdJurusan.Text = Kode_Jurusan
             .CmbJurusan.Enabled = False
 
@@ -453,10 +471,8 @@ Public Class FrmDataMahasiswa
 
             Me.Enabled = False
 
-            ' Ambil nama prodi dari grid (kolom index 7)
             Dim namaProdi As String = DataGridMahasiswa.Item(7, rowIndex).Value?.ToString()
 
-            ' Cari dan set combo prodi (mulai dari index 1 karena index 0 = "SEMUA PRODI")
             Dim prodiFound As Boolean = False
             For i As Integer = 1 To CbNamaJurusan.Items.Count - 1
                 If CbNamaJurusan.Items(i).ToString() = namaProdi Then
@@ -466,12 +482,10 @@ Public Class FrmDataMahasiswa
                 End If
             Next
 
-            ' Jika prodi tidak ditemukan di combo, reload combo dulu
             If Not prodiFound Then
                 Call KoneksiDB()
                 Call TampilkanFilterDataProdi()
 
-                ' Cari lagi setelah reload
                 For i As Integer = 1 To CbNamaJurusan.Items.Count - 1
                     If CbNamaJurusan.Items(i).ToString() = namaProdi Then
                         CbNamaJurusan.SelectedIndex = i
@@ -550,7 +564,7 @@ Public Class FrmDataMahasiswa
         Try
             ' Reload combo
             Call TampilkanFilterDataProdi()
-            Call LoadTahunAngkatan()
+            Call LoadTahunAngkatanByProdi()
 
             ' Set prodi jika ada
             If Not String.IsNullOrEmpty(namaProdi) Then
@@ -592,5 +606,9 @@ Public Class FrmDataMahasiswa
             If DBKoneksi IsNot Nothing AndAlso DBKoneksi.State = ConnectionState.Open Then DBKoneksi.Close()
         Catch ex As Exception
         End Try
+    End Sub
+
+    Private Sub DataGridMahasiswa_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridMahasiswa.CellContentClick
+
     End Sub
 End Class

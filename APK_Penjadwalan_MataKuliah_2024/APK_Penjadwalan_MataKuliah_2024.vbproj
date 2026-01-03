@@ -79,6 +79,7 @@
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="MySql.Data, Version=9.4.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector NET 9.4\MySql.Data.dll</HintPath>
@@ -87,6 +88,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -108,11 +111,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CrystalReportLaporanDataMahasiswa.vb">
+    <Compile Include="CryLaporan_DataPerProdiMahasiswaOLD.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CrystalReportLaporanDataMahasiswa.rpt</DependentUpon>
+      <DependentUpon>CryLaporan_DataPerProdiMahasiswaOLD.rpt</DependentUpon>
       <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataMahasiswa\FrmDataJurusan.Designer.vb">
       <DependentUpon>FrmDataJurusan.vb</DependentUpon>
@@ -125,6 +129,12 @@
     </Compile>
     <Compile Include="DataMahasiswa\FrmDataMahasiswa.Designer.vb">
       <DependentUpon>FrmDataMahasiswa.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataMahasiswa\FrmDataMhsPagination.Designer.vb">
+      <DependentUpon>FrmDataMhsPagination.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DataMahasiswa\FrmDataMhsPagination.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DataMahasiswa\FrmInputJurusan.Designer.vb">
@@ -145,10 +155,10 @@
     <Compile Include="DataMahasiswa\FrmMenuUtama.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmLaporanDataMahasiswa.Designer.vb">
-      <DependentUpon>FrmLaporanDataMahasiswa.vb</DependentUpon>
+    <Compile Include="FrmLapDataMahasiswa.Designer.vb">
+      <DependentUpon>FrmLapDataMahasiswa.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmLaporanDataMahasiswa.vb">
+    <Compile Include="FrmLapDataMahasiswa.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmLogin.Designer.vb">
@@ -156,6 +166,13 @@
     </Compile>
     <Compile Include="FrmLogin.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrystalReport_DataMahasiswa.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport_DataMahasiswa.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="MDbKoneksi.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -182,15 +199,19 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="CrystalReportLaporanDataMahasiswa.rpt">
+    <EmbeddedResource Include="CryLaporan_DataPerProdiMahasiswaOLD.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CrystalReportLaporanDataMahasiswa.vb</LastGenOutput>
+      <LastGenOutput>CryLaporan_DataPerProdiMahasiswaOLD.vb</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="DataMahasiswa\FrmDataJurusan.resx">
       <DependentUpon>FrmDataJurusan.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DataMahasiswa\FrmDataMahasiswa.resx">
       <DependentUpon>FrmDataMahasiswa.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataMahasiswa\FrmDataMhsPagination.resx">
+      <DependentUpon>FrmDataMhsPagination.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DataMahasiswa\FrmInputJurusan.resx">
       <DependentUpon>FrmInputJurusan.vb</DependentUpon>
@@ -201,8 +222,16 @@
     <EmbeddedResource Include="DataMahasiswa\FrmMenuUtama.resx">
       <DependentUpon>FrmMenuUtama.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmLapDataMahasiswa.resx">
+      <DependentUpon>FrmLapDataMahasiswa.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport_DataMahasiswa.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport_DataMahasiswa.vb</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

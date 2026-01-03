@@ -47,8 +47,9 @@ Partial Class FrmInputJurusan
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(526, 37)
+        Me.Panel1.Size = New System.Drawing.Size(701, 46)
         Me.Panel1.TabIndex = 0
         '
         'Label1
@@ -56,8 +57,9 @@ Partial Class FrmInputJurusan
         Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label1.Font = New System.Drawing.Font("Arial", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(0, 0)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(526, 37)
+        Me.Label1.Size = New System.Drawing.Size(701, 46)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = ":: DATA JURUSAN ::"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -75,26 +77,30 @@ Partial Class FrmInputJurusan
         Me.Panel2.Controls.Add(Me.GroupBox1)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel2.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Panel2.Location = New System.Drawing.Point(0, 37)
+        Me.Panel2.Location = New System.Drawing.Point(0, 46)
+        Me.Panel2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(526, 413)
+        Me.Panel2.Size = New System.Drawing.Size(701, 508)
         Me.Panel2.TabIndex = 1
         '
         'Label4
         '
-        Me.Label4.Location = New System.Drawing.Point(40, 197)
+        Me.Label4.Location = New System.Drawing.Point(53, 242)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(101, 28)
+        Me.Label4.Size = New System.Drawing.Size(135, 34)
         Me.Label4.TabIndex = 11
         Me.Label4.Text = "JENJANG"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'CmbJenjang
         '
+        Me.CmbJenjang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CmbJenjang.FormattingEnabled = True
-        Me.CmbJenjang.Location = New System.Drawing.Point(43, 228)
+        Me.CmbJenjang.Location = New System.Drawing.Point(57, 281)
+        Me.CmbJenjang.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.CmbJenjang.Name = "CmbJenjang"
-        Me.CmbJenjang.Size = New System.Drawing.Size(133, 26)
+        Me.CmbJenjang.Size = New System.Drawing.Size(176, 31)
         Me.CmbJenjang.TabIndex = 2
         '
         'TxtNmProdi
@@ -102,9 +108,10 @@ Partial Class FrmInputJurusan
         Me.TxtNmProdi.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TxtNmProdi.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.TxtNmProdi.Location = New System.Drawing.Point(43, 151)
+        Me.TxtNmProdi.Location = New System.Drawing.Point(57, 186)
+        Me.TxtNmProdi.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TxtNmProdi.Name = "TxtNmProdi"
-        Me.TxtNmProdi.Size = New System.Drawing.Size(448, 26)
+        Me.TxtNmProdi.Size = New System.Drawing.Size(596, 30)
         Me.TxtNmProdi.TabIndex = 5
         '
         'TxtKdProdi
@@ -112,24 +119,27 @@ Partial Class FrmInputJurusan
         Me.TxtKdProdi.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TxtKdProdi.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.TxtKdProdi.Location = New System.Drawing.Point(43, 74)
+        Me.TxtKdProdi.Location = New System.Drawing.Point(57, 91)
+        Me.TxtKdProdi.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TxtKdProdi.Name = "TxtKdProdi"
-        Me.TxtKdProdi.Size = New System.Drawing.Size(448, 26)
+        Me.TxtKdProdi.Size = New System.Drawing.Size(596, 30)
         Me.TxtKdProdi.TabIndex = 4
         '
         'Label3
         '
-        Me.Label3.Location = New System.Drawing.Point(40, 130)
+        Me.Label3.Location = New System.Drawing.Point(53, 160)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(121, 18)
+        Me.Label3.Size = New System.Drawing.Size(161, 22)
         Me.Label3.TabIndex = 3
         Me.Label3.Text = "NAMA PRODI"
         '
         'Label2
         '
-        Me.Label2.Location = New System.Drawing.Point(40, 53)
+        Me.Label2.Location = New System.Drawing.Point(53, 65)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(118, 18)
+        Me.Label2.Size = New System.Drawing.Size(157, 22)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "KODE PRODI"
         '
@@ -137,9 +147,10 @@ Partial Class FrmInputJurusan
         '
         Me.Panel3.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel3.Location = New System.Drawing.Point(0, 393)
+        Me.Panel3.Location = New System.Drawing.Point(0, 483)
+        Me.Panel3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(526, 20)
+        Me.Panel3.Size = New System.Drawing.Size(701, 25)
         Me.Panel3.TabIndex = 0
         '
         'GroupBox1
@@ -153,47 +164,53 @@ Partial Class FrmInputJurusan
         Me.GroupBox1.Controls.Add(Me.BtnSimpan)
         Me.GroupBox1.Controls.Add(Me.BtnHapus)
         Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.GroupBox1.Location = New System.Drawing.Point(43, 286)
+        Me.GroupBox1.Location = New System.Drawing.Point(57, 347)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(451, 81)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Size = New System.Drawing.Size(601, 105)
         Me.GroupBox1.TabIndex = 10
         Me.GroupBox1.TabStop = False
         '
         'BtnKeluar
         '
-        Me.BtnKeluar.Location = New System.Drawing.Point(328, 25)
+        Me.BtnKeluar.Location = New System.Drawing.Point(437, 31)
+        Me.BtnKeluar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.BtnKeluar.Name = "BtnKeluar"
-        Me.BtnKeluar.Size = New System.Drawing.Size(117, 31)
+        Me.BtnKeluar.Size = New System.Drawing.Size(156, 38)
         Me.BtnKeluar.TabIndex = 9
         Me.BtnKeluar.Text = "KELUAR"
         Me.BtnKeluar.UseVisualStyleBackColor = True
         '
         'BtnSimpan
         '
-        Me.BtnSimpan.Location = New System.Drawing.Point(6, 25)
+        Me.BtnSimpan.Location = New System.Drawing.Point(8, 31)
+        Me.BtnSimpan.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.BtnSimpan.Name = "BtnSimpan"
-        Me.BtnSimpan.Size = New System.Drawing.Size(127, 31)
+        Me.BtnSimpan.Size = New System.Drawing.Size(169, 38)
         Me.BtnSimpan.TabIndex = 6
         Me.BtnSimpan.Text = "SIMPAN"
         Me.BtnSimpan.UseVisualStyleBackColor = True
         '
         'BtnHapus
         '
-        Me.BtnHapus.Location = New System.Drawing.Point(188, 25)
+        Me.BtnHapus.Location = New System.Drawing.Point(251, 31)
+        Me.BtnHapus.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.BtnHapus.Name = "BtnHapus"
-        Me.BtnHapus.Size = New System.Drawing.Size(100, 31)
+        Me.BtnHapus.Size = New System.Drawing.Size(133, 38)
         Me.BtnHapus.TabIndex = 7
         Me.BtnHapus.Text = "HAPUS"
         Me.BtnHapus.UseVisualStyleBackColor = True
         '
         'FrmInputJurusan
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(526, 450)
+        Me.ClientSize = New System.Drawing.Size(701, 554)
         Me.ControlBox = False
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "FrmInputJurusan"
         Me.Text = "FrmInputJurusan"
         Me.Panel1.ResumeLayout(False)

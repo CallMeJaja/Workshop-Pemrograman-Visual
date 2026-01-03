@@ -71,4 +71,7 @@
         Role = ""
     End Sub
 
+    Private Sub ToolStripDropDownAdminButton1_Click(sender As Object, e As EventArgs) Handles ToolStripDropDownAdminButton1.Click
+
+    End Sub
 End Class
